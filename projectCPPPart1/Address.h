@@ -13,6 +13,10 @@ public:
 	Address(Address& otheradress);
 	Address(Address&& other);
 	~Address();
+	void setStreet(const char* street);
+	char* getStreet();
+	void setCity(const char* city);
+	char* getCity();
 	friend ostream& operator<<(ostream& os, const Address& add);
 	
 
