@@ -4,21 +4,14 @@ using namespace std;
 
 
 Lion::Lion(const Lion &other) : Mammal(other.serialNumber, other.name, other.height, other.weight, other.numberOfLegs) {
-    this->serialNumber = other.serialNumber;
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
-    this->height = other.height;
-    this->weight = other.weight;
-    this->numberOfLegs = other.numberOfLegs;
+
 }
 Lion::Lion(Lion&& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, other.numberOfLegs){
-    this->serialNumber = other.serialNumber;
-    this->height = other.height;
-    this->weight = other.weight;
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
     other.name = nullptr;
-    this->numberOfLegs = other.numberOfLegs;
 }
 
 Lion::~Lion(){
