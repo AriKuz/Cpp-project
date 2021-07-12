@@ -1,15 +1,24 @@
 #include "Zoo.h"
-
-
-
-
-
+#include "Cage.h"
 
 void Zoo::addAnimal(Animal& animal) {
-    for (int i =0; i<cagesCount; i++){
-        if(strcmp(cages[i]->getType(), typeid(animal).name()))
-            cout << "This cage type already exists";
+    for (int i =0; i<cagesCount; i++)
+    {
+        if(cages[i]->getType()== animal.getType())
+        {
+            cages[i]->addAnimal(animal);
+            return;
+        }
     }
+    // No cage was found, so we create a new one
+
+    /*
+            Break :) Let's continue at 21:40 ?
+    */
+
+
+    cages[cagesCount] = new Cage(); // TODO - check what Cage c'tor requires
+    cages[cagesCount]->addAnimal(animal);
 }
 void Zoo::removeAnimal(int serialNumber) {
 

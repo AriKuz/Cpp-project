@@ -12,16 +12,19 @@ class Animal
 {
 protected:
 	int serialNumber;
+	int type; // Bat: 0, Bird: 1, Crocodile : 2, Lion: 3, Ostrich: 4, Parrot: 5.
 	char* name;
 	float height;
 	float weight;
 
-	Animal(int sn,const char* nme,float height1, float weight1) {
+	Animal(int sn,const char* nme,float height1, float weight1, int type)
+	{
 		serialNumber = sn;
 		name = new char[strlen(nme)+1];
 		strcpy(name, nme);
 		height = height1;
 		weight = weight1;
+		type = type;
 	}
 
 	virtual ~Animal()
@@ -38,6 +41,7 @@ public:
 	float getHeigt() const { return height; }
 	float getWeight() const { return weight; }
 	int getSerialNumber() const { return serialNumber; }
+	int getType() const { return type; }
 };
 
 #endif 
