@@ -10,10 +10,6 @@ C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Address.h
 iostream
 -
 
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Animal.cpp
-Animal.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Animal.h
-
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Animal.h
 stdio.h
 -
@@ -22,19 +18,11 @@ string.h
 iostream
 -
 
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bat.cpp
-Bat.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bat.h
-
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bat.h
 Mammal.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Mammal.h
 Canfly.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Canfly.h
-
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bird.cpp
-Bird.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bird.h
 
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bird.h
 Animal.h
@@ -55,10 +43,6 @@ C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Animal.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/CanSwin.h
 
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Canfly.h
-
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Crocodile.cpp
-Crocodile.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Crocodile.h
 
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Crocodile.h
 Reptile.h
@@ -86,17 +70,9 @@ C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Mammal.h
 stdio.h
 -
 
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Mammal.cpp
-Mammal.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Mammal.h
-
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Mammal.h
 Animal.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Animal.h
-
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Ostrich.cpp
-Ostrich.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Ostrich.h
 
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Ostrich.h
 ostream
@@ -104,19 +80,11 @@ ostream
 Bird.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bird.h
 
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Parrot.cpp
-Parrot.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Parrot.h
-
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Parrot.h
 Bird.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Bird.h
 Canfly.h
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Canfly.h
-
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Reptile.cpp
-Reptile.h
-C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Reptile.h
 
 C:/Users/ARI/Desktop/projectCPPPart1/projectCPPPart1/Reptile.h
 Animal.h
