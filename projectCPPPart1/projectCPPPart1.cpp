@@ -154,8 +154,8 @@ void addCageMenu() {
 
 int main()
 {
-    Address add("bialik", 8, "ramla");
-    const char* nameOfZoo = "jongel ramla";
+    Address add("bialik", 8, "Ramla");
+    const char* nameOfZoo = "Jungle Ramla";
     Zoo zoo(nameOfZoo,6,add);
     int option = 10;
     do {

@@ -2,12 +2,16 @@
 #include "Canfly.h"
 #include "Mammal.h"
 
-Bat::Bat(const Bat& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, 2), Canfly(10){}
+Bat::Bat(const Bat& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, 2), Canfly(10)
+{
+    this->name = new char[strlen(other.name) + 1];
+    strcpy(this->name, other.name);
+}
 Bat::Bat(Bat&& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, other.numberOfLegs), Canfly(other.speedOfFlyt)
 {
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
-    delete other.name;
+    other.name = nullptr;
 }
 
 Bat::~Bat()
@@ -21,7 +25,7 @@ ostream& operator<< (ostream& o, const Bat& a)
 }
 void Bat::fly() const
 {
-    cout << "Bat is flying with a speed of " << speedOfFlyt;
+    cout << "Bat is flying with a speed of " << speedOfFlyt << endl;
 }
 const Bat* Bat::operator++()
 {
@@ -30,9 +34,9 @@ const Bat* Bat::operator++()
 }
 void Bat::eat()
 {
-    cout << "Bat is eating";
+    cout << "Bat is eating" << endl;
 }
 void Bat::makeSound() const
 {
-    cout << "Yeee I am bat";
+    cout << "Yeee I am bat" << endl;
 }
