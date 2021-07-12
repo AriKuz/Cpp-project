@@ -3,13 +3,13 @@
 Bird::~Bird(){
     delete []name;
 }
-Bird::Bird(int sn, const char *nme, float height1, float weight1, const Bird &other) : Animal(sn, nme, height1, weight1) {
+Bird::Bird(int sn, const char *nme, float height1, float weight1, const Bird &other, int type) : Animal(sn, nme, height1, weight1, type) {
 
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
 
 }
-Bird::Bird(int sn, const char *nme, float height1, float weight1, Bird &&other) : Animal(sn, nme, height1, weight1) {
+Bird::Bird(int sn, const char *nme, float height1, float weight1, Bird &&other, int type) : Animal(sn, nme, height1, weight1, type) {
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
     other.name = nullptr;

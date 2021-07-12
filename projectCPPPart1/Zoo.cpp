@@ -12,12 +12,7 @@ void Zoo::addAnimal(Animal& animal) {
     }
     // No cage was found, so we create a new one
 
-    /*
-            Break :) Let's continue at 21:40 ?
-    */
-
-
-    cages[cagesCount] = new Cage(); // TODO - check what Cage c'tor requires
+    cages[cagesCount] = new Cage(animal.getType()); // TODO - check what Cage c'tor requires
     cages[cagesCount]->addAnimal(animal);
 }
 void Zoo::removeAnimal(int serialNumber) {

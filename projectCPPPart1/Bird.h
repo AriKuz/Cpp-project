@@ -11,14 +11,14 @@ private:
 	float sizeOfBeak;
 
 public:
-	Bird(int sn, const char* nme, float h, float w,const char* cof, float sob) : Animal(sn, nme, h, w)
+	Bird(int sn, const char* nme, float h, float w,const char* cof, float sob, int type) : Animal(sn, nme, h, w, type)
 	{
         sizeOfBeak = sob;
 		colorOfFeathers = new char[strlen(cof) + 1];
 		strcpy(colorOfFeathers, cof);
 	}
-    Bird::Bird(int sn, const char *nme, float height1, float weight1, const Bird &other);
-    Bird::Bird(int sn, const char *nme, float height1, float weight1, Bird &&other);
+    Bird(int sn, const char *nme, float height1, float weight1, const Bird &other, int type);
+    Bird(int sn, const char *nme, float height1, float weight1, Bird &&other, int type);
 	~Bird();
     friend ostream& operator<< (ostream& o, const Bird& a);
 	char* getColorOfFeathers() const { return colorOfFeathers; }
