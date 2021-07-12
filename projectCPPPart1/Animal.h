@@ -38,10 +38,11 @@ public:
 	virtual void makeSound() const = 0;
 	void setHeight(float h);
 	void setWeight(float w);
-	float getHeigt() const { return height; }
+	float getHeight() const { return height; }
 	float getWeight() const { return weight; }
 	int getSerialNumber() const { return serialNumber; }
 	int getType() const { return type; }
+	char* getName() const { return name; }
 };
 
 #endif 

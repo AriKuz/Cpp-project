@@ -151,12 +151,11 @@ void addCageMenu() {
     cout << "0 for exit \n";
 }
 
-
 int main()
 {
     Address add("bialik", 8, "Ramla");
     const char* nameOfZoo = "Jungle Ramla";
-    Zoo zoo(nameOfZoo,6,add);
+    Zoo zoo(nameOfZoo, 6, add, 5);
     int option = 10;
     do {
         
@@ -290,10 +289,5 @@ int main()
 
     } while (option != 0);
 
-
     return 0;
-
-
 }
-
-

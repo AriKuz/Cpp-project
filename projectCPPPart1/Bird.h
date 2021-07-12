@@ -6,7 +6,7 @@
 #include <string.h>
 class Bird : public Animal
 {
-private:
+protected:
 	char* colorOfFeathers;
 	float sizeOfBeak;
 
@@ -17,8 +17,8 @@ public:
 		colorOfFeathers = new char[strlen(cof) + 1];
 		strcpy(colorOfFeathers, cof);
 	}
-    Bird(int sn, const char *nme, float height1, float weight1, const Bird &other, int type);
-    Bird(int sn, const char *nme, float height1, float weight1, Bird &&other, int type);
+    Bird(const Bird &other);
+    Bird(Bird &&other);
 	~Bird();
     friend ostream& operator<< (ostream& o, const Bird& a);
 	char* getColorOfFeathers() const { return colorOfFeathers; }

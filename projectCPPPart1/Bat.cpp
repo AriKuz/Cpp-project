@@ -1,6 +1,4 @@
 #include "Bat.h"
-#include "Canfly.h"
-#include "Mammal.h"
 
 Bat::Bat(const Bat& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, 2, other.type), Canfly(10)
 {
@@ -27,10 +25,10 @@ void Bat::fly() const
 {
     cout << "Bat is flying with a speed of " << speedOfFlyt << endl;
 }
-const Bat* Bat::operator++()
+const Bat& Bat::operator++()
 {
     speedOfFlyt++;
-    return this;
+    return *this;
 }
 void Bat::eat()
 {

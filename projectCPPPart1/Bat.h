@@ -15,7 +15,7 @@ public:
 	~Bat();
 	friend ostream& operator<< (ostream& o, const Bat& a);
 	void fly() const;
-	const Bat* operator++();
+	const Bat& operator++();
 	void eat();
 	void makeSound() const;
 };

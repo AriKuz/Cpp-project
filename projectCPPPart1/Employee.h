@@ -23,7 +23,12 @@ public:
 		strcpy(role, rol);
 	}
 
-	friend ostream& operator<< (ostream& o, const Employee& a);
+	friend ostream& operator<< (ostream& o, const Employee& a)
+	{
+		cout << "Employee num#" << a.employeeNumber << ", name: " << a.name << ", role:" << a.role << endl;
+		return o; 
+	}
+	int getEmployeeNumber() { return this->employeeNumber;}
 };
 
 

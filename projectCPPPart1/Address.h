@@ -4,7 +4,7 @@
 using namespace std;
 class Address
 {
-private:
+protected:
 	char* street;
 	int number;
 	char* city;
@@ -17,9 +17,8 @@ public:
 	char* getStreet();
 	void setCity(const char* city);
 	char* getCity();
-	friend ostream& operator<<(ostream& os, const Address& add);
-	
-
-	
+	void setNumber(const int num){ number = num;};
+	int getNumber(){ return this->number; }
+	friend ostream& operator<<(ostream& os, const Address& add);	
 };
 #endif

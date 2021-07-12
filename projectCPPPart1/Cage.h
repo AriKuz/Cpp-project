@@ -20,6 +20,8 @@ public:
 	Cage* operator+=(const Cage& other);
 	Cage* operator+=(Animal& other);
 	int getType() const { return cageType;};
+	int getAnimalsCount() const { return animalsCount;};
+	Animal** getAnimals() const { return animals;};
 	
 };
 #endif

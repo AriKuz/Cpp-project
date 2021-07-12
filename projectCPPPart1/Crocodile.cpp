@@ -31,6 +31,11 @@ const Crocodile& Crocodile::operator++()
     return *this;
 }
 
+void Crocodile::swim() const
+{
+    cout << "Crocodile is swimming" << endl;
+}
+
 ostream& operator<<(ostream& o, const Crocodile& a)
 {
     o << (Animal&)a << "\nserial number: " << a.serialNumber
