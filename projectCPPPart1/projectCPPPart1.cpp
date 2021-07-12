@@ -149,9 +149,6 @@ void addCageMenu() {
     cout << "4 for Bat \n";
     cout << "5 for Ostrich \n";
     cout << "0 for exit \n";
-    
-   
-
 }
 
 

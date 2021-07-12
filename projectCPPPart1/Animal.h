@@ -15,14 +15,15 @@ protected:
 	char* name;
 	float height;
 	float weight;
+
 	Animal(int sn,const char* nme,float height1, float weight1) {
 		serialNumber = sn;
 		name = new char[strlen(nme)+1];
 		strcpy(name, nme);
 		height = height1;
 		weight = weight1;
-		
 	}
+
 	virtual ~Animal()
 	{
 		delete []name;
@@ -36,9 +37,7 @@ public:
 	void setWeight(float w);
 	float getHeigt() const { return height; }
 	float getWeight() const { return weight; }
-	
-	
-
+	int getSerialNumber() const { return serialNumber; }
 };
 
 #endif 

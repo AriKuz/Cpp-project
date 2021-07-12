@@ -7,11 +7,9 @@ protected:
 	
 	int numberOfLegs=0;
 	Mammal(int sn, const char* nm ,float h , float w ,int nol) : Animal(sn, nm, h,w) {
-		
 		numberOfLegs = nol;
 	}
 
-	
 public:
 	
 
