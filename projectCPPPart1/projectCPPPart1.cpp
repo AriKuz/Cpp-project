@@ -172,6 +172,7 @@ int main()
         {
         
         case 1:
+            cout << "You chose : add an animal" << endl;
             int animalOption;
             
             do {
@@ -214,15 +215,18 @@ int main()
             
             break;
         case 2:
+            cout << "You chose : remove an animal" << endl;
             int sn;
             cout << "Please specify a serial number of an animal to remove (int):\n";
             cin >> sn;
             zoo.removeAnimal(sn);
             break;
         case 3:
+            cout << "You chose : add an employee" << endl;
             zoo.addEmployee(getEmployee());
             break;
         case 4:
+            cout << "You chose : remove an employee" << endl;
             int em;
             cout << "Please specify the employe number of the employee which you would like to remove (int):\n";
             cin >> em;
@@ -230,6 +234,7 @@ int main()
             break;
 
         case 5:
+            cout << "You chose : add a cage" << endl;
             int cageOption ;
 
             do
@@ -272,16 +277,19 @@ int main()
 
             break;
         case 6:
+            cout << "You chose : show all zoo" << endl;
             zoo.show();
-            cout << "You chose :" << 6;
             break;
         case 7:
+            cout << "You chose : show all the animals" << endl;
             zoo.showAllAnimals();
             break;
         case 8:
+            cout << "You chose : show all the employees" << endl;
             zoo.showAllEmployees();
             break;
         case 9:
+            cout << "You chose : feed all the animals" << endl;
             zoo.feedAllAnimals();
             break;
         default:

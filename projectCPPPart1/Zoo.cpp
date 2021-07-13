@@ -141,7 +141,7 @@ void Zoo::showAllAnimals() const {
 }
 
 void Zoo::showAllEmployees() const {
-	cout << "Employees :\n";
+	cout << "\nEmployees :\n";
 	for (int i = 0; i < employeesCount; i++)
 		cout << *employees[i] << endl;
 }
