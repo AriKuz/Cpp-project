@@ -39,6 +39,6 @@ ostream& operator<<(ostream& o, const Lion& a)
                     << "\nname: " << a.name
                     << "\nheight: " << a.height
                     << "\nweight: " << a.weight
-                    << "\nnumber of legs: " << a.numberOfLegs;
+                    << "\number of legs: " << a.numberOfLegs << endl;
     return o;
 }

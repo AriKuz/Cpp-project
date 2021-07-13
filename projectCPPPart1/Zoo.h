@@ -30,9 +30,9 @@ public:
 	Zoo(Zoo& other);
 	Zoo(Zoo&& other);
 	~Zoo();
-	void addAnimal(Animal& animal);
+	void addAnimal(Animal* animal);
 	void removeAnimal(int serialNumber);
-	void addEmployee(Employee& employee);
+	void addEmployee(Employee* employee);
 	void removeEmployee(int employeeNumber);
 	void show();
 	void addCage(int type);

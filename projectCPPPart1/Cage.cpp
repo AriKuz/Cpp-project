@@ -1,6 +1,11 @@
 #include "Cage.h"
 
-Cage::Cage(int type): cageType(type){}
+Cage::Cage(int type): cageType(type)
+{
+    //TODO find a different way to define the animalsCount and the animals
+    this->maxAnimals = 20;
+    this->animals = new Animal*[maxAnimals];
+}
 Cage::Cage(const Cage& other)
 {
     this->cageType = other.cageType;
@@ -22,32 +27,35 @@ Cage::~Cage()
 }
 ostream& operator<< (ostream& o, const Cage& cage)
 {
-    //TODO oschwart -> change the typeto ENUM
+    //TODO change the type to ENUM
     cout << "The cage type is " << cage.cageType << " and the number of animals is " <<  cage.animalsCount << endl;
     for (int i = 0; i < cage.animalsCount; i++)
-        cout << "Animal number #" << i << ": " << cage.animals[i];
+        cout << "\nAnimal number #" << i << ":\n" << *(cage.animals[i]) << endl;
     
     return o;
 }
-void Cage::addAnimal(Animal& animal)
+void Cage::addAnimal(Animal* animal)
 {
-    animals[animalsCount++] = &animal;
+    animals[animalsCount++] = animal;
 }
 void Cage::removeAnimal(int sn)
 {
     for (int i = 0; i < animalsCount; i++) {
         if (animals[i]->getSerialNumber() == sn)
+        {
             delete &animals[i];
+            animalsCount--;
+        }
     }
 }
 Cage* Cage::operator+=(const Cage& other)
 {
     for (int i = 0; i < other.animalsCount; i++)
-        addAnimal(*(other.animals[i]));
+        addAnimal(other.animals[i]);
 
     return this;
 }
-Cage* Cage::operator+=(Animal& other)
+Cage* Cage::operator+=(Animal* other)
 {
     // TODO check if correct
     addAnimal(other);

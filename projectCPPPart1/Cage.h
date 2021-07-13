@@ -7,6 +7,7 @@ class Cage
 private:
 	Animal** animals;
 	int animalsCount = 0;
+	int maxAnimals;
 	int cageType;
 
 public:
@@ -15,10 +16,10 @@ public:
 	Cage(Cage&& other);
 	~Cage();
 	friend ostream& operator<< (ostream& o, const Cage& a);
-	void addAnimal(Animal& animal);
+	void addAnimal(Animal* animal);
 	void removeAnimal(int sn);
 	Cage* operator+=(const Cage& other);
-	Cage* operator+=(Animal& other);
+	Cage* operator+=(Animal* other);
 	int getType() const { return cageType;};
 	int getAnimalsCount() const { return animalsCount;};
 	Animal** getAnimals() const { return animals;};
