@@ -1,6 +1,6 @@
 #include "Zoo.h"
 
-Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(add)
+Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(&add)
 {
 	name = new char[strlen(nme) + 1];
 	strcpy(name, nme);
@@ -11,7 +11,7 @@ Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : 
 	employeesCount = 0;
 }
 
-Zoo::Zoo(Zoo& other) : address(other.getAddress())
+Zoo::Zoo(Zoo& other) : address(other.address)
 {
 	name = strdup(other.name);
 	cages = new Cage*[sizeof(other.cages)];
@@ -44,7 +44,7 @@ Zoo::~Zoo()
 {
 	delete[] name;
 	delete[] cages;
-	delete &address;
+	delete address;
 	delete[] employees;
 }
 
@@ -70,7 +70,6 @@ void Zoo::addAnimal(Animal* animal)
 	addCage(animal->getType());
 	cages[cagesCount]->addAnimal(animal);
 	cout << "Cage for this animal created and Animal was added successfully!!" << endl;
-
 }
 
 

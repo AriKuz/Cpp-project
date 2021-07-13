@@ -46,7 +46,7 @@ Lion* getLion() {
     cin >> height;
     cout << "Please specify the weight (int):\n";
     cin >> weight;
-    
+
     return new Lion(sn, name, height, weight);
 }
 Ostrich* getOstrich(){

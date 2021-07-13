@@ -52,12 +52,14 @@ Cage* Cage::operator+=(const Cage& other)
 {
     if(other.getType() == this->getType())
     {
-    for (int i = 0; i < other.animalsCount; i++)
-        addAnimal(other.animals[i]);
-    return this;
+        for (int i = 0; i < other.animalsCount; i++)
+            addAnimal(other.animals[i]);
+        return this;
     }
     cout<< " Cage type dont match, Its danguras to mixed them !!!!";
+    return NULL;
 }
+
 Cage* Cage::operator+=(Animal* other)
 {
     // TODO check if correct
