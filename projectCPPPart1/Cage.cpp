@@ -4,60 +4,48 @@ Cage::Cage(int type): cageType(type)
 {
     //TODO find a different way to define the animalsCount and the animals
     this->maxAnimals = 20;
-    this->animals = new Animal*[maxAnimals];
 }
 Cage::Cage(const Cage& other)
 {
     this->cageType = other.cageType;
-    this->animalsCount = other.animalsCount;
-
-    this->animals = new Animal*[animalsCount];
-    for (int i = 0; i < animalsCount; i++)
-        animals[i] = other.animals[i];
+    this->animals = other.animals;
 }
 Cage::Cage(Cage&& other)
 {
+    //TODO: delete other's vector instead of copying the pointers
     this->cageType = other.cageType;
-    this->animalsCount = other.animalsCount;
-    std::swap(animals, other.animals);
+    this->animals = other.animals;
 }
 Cage::~Cage()
 {
-    delete[] this->animals;
 }
 ostream& operator<< (ostream& o, const Cage& cage)
 {
     //TODO change the type to ENUM
-    cout << "The cage type is " << cage.cageType << " and the number of animals is " <<  cage.animalsCount << endl;
-    for (int i = 0; i < cage.animalsCount; i++)
-        cout << "\nAnimal number #" << i << ":\n" << *(cage.animals[i]) << endl;
-    
+    cout << "The cage type is " << cage.cageType << " and the number of animals is " <<  cage.animals.size() << endl;
+    int counter = 0;
+    for (auto it = cage.animals.begin(); it != cage.animals.end(); ++it, counter++)
+    	cout << "\nAnimal number #" << counter << ":\n" << **it << endl;
     return o;
 }
 void Cage::addAnimal(Animal* animal)
 {
-    animals[animalsCount++] = animal;
+    animals.push_back(animal);
 }
 void Cage::removeAnimal(int sn)
 {
-    for (int i = 0; i < animalsCount; i++) {
-        if (animals[i]->getSerialNumber() == sn)
-        {
-            delete &animals[i];
-            animalsCount--;
-        }
-    }
+    for (auto it = animals.begin(); it != animals.end(); ++it)
+    	if ((*it)->getSerialNumber() == sn)
+            animals.erase(it);
 }
 Cage* Cage::operator+=(const Cage& other)
 {
-    for (int i = 0; i < other.animalsCount; i++)
-        addAnimal(other.animals[i]);
-
+    for (auto it = other.animals.begin(); it != other.animals.end(); ++it)
+        addAnimal(*it);
     return this;
 }
 Cage* Cage::operator+=(Animal* other)
 {
-    // TODO check if correct
     addAnimal(other);
     return this;
 }

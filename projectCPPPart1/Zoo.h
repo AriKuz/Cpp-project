@@ -1,6 +1,7 @@
 #pragma warning(disable: 4996)
 #ifndef __ZOO_H
 #define __ZOO_H
+#include <vector>
 #include "Animal.h"
 #include "Employee.h"
 #include "Cage.h"
@@ -16,17 +17,20 @@ class Zoo
 {
 private:
 	char* name;
-	Cage** cages;
-	Employee** employees;
+	vector<Cage*> cages;
+	vector<Employee*> employees;
+	// Cage** cages;
+	// Employee** employees;
 	Address address;
-	int cagesCount ;
-	int maxCagesCount;
-	int animalsCount;
-	int employeesCount;
-	int maxEmployees;
+	// int cagesCount ;
+	// int maxCagesCount;
+	// int animalsCount;
+	// int employeesCount;
+	// int maxEmployees;
 public:
 
-	Zoo(const char* name, int numOfCages, Address& add, int maxEmployees);
+	// Zoo(const char* name, int numOfCages, Address& add, int maxEmployees);
+	Zoo(const char* nme, Address& add);
 	Zoo(Zoo& other);
 	Zoo(Zoo&& other);
 	~Zoo();
@@ -39,7 +43,8 @@ public:
 	void showAllAnimals()const;
 	void showAllEmployees()const;
 	void feedAllAnimals();
-	Cage& operator[](int index) { return *cages[index]; }
+	// Cage& operator[](int index) { return *cages[index]; }
+	Cage& operator[](int index) { return *cages.at(index); }
 	Address& getAddress(){return address; }
 };
 

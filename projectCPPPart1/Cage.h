@@ -1,12 +1,12 @@
 #ifndef __CAGE_H
 #define __CAGE_H
+#include <vector>
 #include "Animal.h"
 class Cage
 {
 
 private:
-	Animal** animals;
-	int animalsCount = 0;
+	vector<Animal*> animals;
 	int maxAnimals;
 	int cageType;
 
@@ -21,9 +21,7 @@ public:
 	Cage* operator+=(const Cage& other);
 	Cage* operator+=(Animal* other);
 	int getType() const { return cageType;};
-	int getAnimalsCount() const { return animalsCount;};
-	Animal** getAnimals() const { return animals;};
-	
+	vector<Animal*> getAnimals() const { return animals;};
 };
 #endif
 

@@ -155,7 +155,8 @@ int main()
 {
     Address add("Bialik", 8, "Ramla");
     const char* nameOfZoo = "Jungle Ramla";
-    Zoo zoo(nameOfZoo, 6, add, 5);
+    // Zoo zoo(nameOfZoo, 6, add, 5);
+    Zoo zoo(nameOfZoo, add);
     int option = 10;
     do {
         
