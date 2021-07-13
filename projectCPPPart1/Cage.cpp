@@ -50,10 +50,13 @@ void Cage::removeAnimal(int sn)
 }
 Cage* Cage::operator+=(const Cage& other)
 {
+    if(other.getType() == this->getType())
+    {
     for (int i = 0; i < other.animalsCount; i++)
         addAnimal(other.animals[i]);
-
     return this;
+    }
+    cout<< " Cage type dont match, Its danguras to mixed them !!!!";
 }
 Cage* Cage::operator+=(Animal* other)
 {
