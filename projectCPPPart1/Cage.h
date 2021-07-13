@@ -22,6 +22,7 @@ public:
 	Cage* operator+=(Animal* other);
 	int getType() const { return cageType;};
 	vector<Animal*> getAnimals() const { return animals;};
+	void feedAllAnimalsInCage();
 };
 #endif
 

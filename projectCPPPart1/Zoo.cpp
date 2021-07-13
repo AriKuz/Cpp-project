@@ -1,30 +1,17 @@
 #include "Zoo.h"
 
-// Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(add)
 Zoo::Zoo(const char* nme, Address& add) : address(add)
 {
 	name = new char[strlen(nme) + 1];
 	strcpy(name, nme);
-	// maxCagesCount = numOfCages;
-	// cages = new Cage*[maxCagesCount];
-	// maxEmployees = maximumEmployees;
-	// employees = new Employee*[maximumEmployees];
-	// employeesCount = 0;
 }
 
 Zoo::Zoo(Zoo& other) : address(other.getAddress())
 {
 	name = new char[strlen(other.name) + 1];
 	name = other.name;
-	// cages = new Cage*[sizeof(other.cages)];
 	cages = other.cages;
-	// employees = new Employee*[sizeof(other.employees)];
 	employees = other.employees;
-	// cagesCount = other.cagesCount;
-	// maxCagesCount = other.maxCagesCount;
-	// animalsCount = other.animalsCount;
-	// employeesCount = other.employeesCount;
-	// maxEmployees = other.maxEmployees;
 }
 
 Zoo::Zoo(Zoo&& other) : address(other.address)
@@ -32,26 +19,14 @@ Zoo::Zoo(Zoo&& other) : address(other.address)
 	name = other.name;
 	other.name = nullptr;
 	cages = other.cages;
-	// other.cages = nullptr;
 	delete &other.cages;
 	employees = other.employees;
-	// other.employees = nullptr;
 	delete &other.employees;
-	// address = other.address;
-	// other.address = nullptr;
-	// cagesCount = other.cagesCount;
-	// maxCagesCount = other.maxCagesCount;
-	// animalsCount = other.animalsCount;
-	// employeesCount = other.employeesCount;
-	// maxEmployees = other.maxEmployees;
 }
 
 Zoo::~Zoo()
 {
 	delete[] name;
-	// delete[] cages;
-	// delete address;
-	// delete[] employees;
 }
 
 void Zoo::addAnimal(Animal* animal) 
@@ -77,69 +52,22 @@ void Zoo::removeAnimal(int serialNumber)
 	auto itr_cages = cages.begin();
 	auto itr_end = cages.end();
 	for (; itr_cages != itr_end; ++itr_cages)
-	{
-		cout << "After first for loop" << endl;
-		cout << **(*itr_cages)->getAnimals().begin();
-		auto animals_itr = (*itr_cages)->getAnimals().begin();
-		auto animals_itr_end = (*itr_cages)->getAnimals().end();
-		for (; animals_itr != animals_itr_end; ++animals_itr)
-		{
-			cout << "Serial number " << (**animals_itr).name();
-			// cout << (*animals_itr)->getSerialNumber() << endl;
-			// cout << "Serial number " << (*animals_itr)->getSerialNumber();
-			
-			if ((*animals_itr)->getSerialNumber() == serialNumber)
-			{
-				(*itr_cages)->removeAnimal(serialNumber);
-				return;
-			}
-		}
-	}
-	// for (int i = 0; i < cagesCount; i++) 
-	// {
-	// 	for (int j = 0; j < cages(i)->getAnimalsCount();j++) 
-	// 	{
-	// 		Animal** a = cages(i)->getAnimals();
-	// 		cout << "Animals: " << *a << endl;
-	// 		cout << a[j] << endl;
-	// 		if (cages(i)->getAnimals()[j]->getSerialNumber() == serialNumber) 
-	// 		{
-	// 			cages(i)->removeAnimal(serialNumber);
-	// 			return;
-	// 		}
-	// 	}
-	// }
-    // cout << "Serial number was not belong to any animal!!!" << endl;
+		(*itr_cages)->removeAnimal(serialNumber);
 }
 
 void Zoo::addEmployee(Employee* employee) 
 {
-	// TODO: decide if we want maxEmployees or not
-
-	// if (employeesCount < maxEmployees)
-	// 	employees[employeesCount++] = new Employee(*employee);
-
-	// if (employees.size() < maxEmployees)
 	employees.push_back(new Employee(*employee));
-	// else
-	// {
-	// 	cout << "employees count is smaller then maxEmployees" << endl;
-	// 	throw "There is not enough room for new employee";
-	// }
 }
 
 void Zoo::removeEmployee(int employeeNumber) 
 {
-	int counter = 0;
-	for (auto it = employees.begin(); it != employees.end(); ++it, counter++)
-	{
+	for (auto it = employees.begin(); it != employees.end(); ++it)
 		if ((*it)->getEmployeeNumber() == employeeNumber)
 		{
-			cout << "Counter is " << counter;
 			employees.erase(it);
 			return;
 		}
-	}
 }
 
 void Zoo::show()  
@@ -176,7 +104,6 @@ void Zoo::showAllEmployees() const
 
 void Zoo::feedAllAnimals()
 {
-    // for (int i = 0; i < cagesCount; i++) 
-	// 	for (int j = 0;j < (*this)[i].getAnimalsCount();j++) 
-	// 		cages[i]->getAnimals()[j]->eat();
+	for (auto it = cages.begin(); it != cages.end(); ++it)
+		(*it)->feedAllAnimalsInCage();
 }

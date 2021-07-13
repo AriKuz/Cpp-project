@@ -19,17 +19,9 @@ private:
 	char* name;
 	vector<Cage*> cages;
 	vector<Employee*> employees;
-	// Cage** cages;
-	// Employee** employees;
 	Address address;
-	// int cagesCount ;
-	// int maxCagesCount;
-	// int animalsCount;
-	// int employeesCount;
-	// int maxEmployees;
 public:
 
-	// Zoo(const char* name, int numOfCages, Address& add, int maxEmployees);
 	Zoo(const char* nme, Address& add);
 	Zoo(Zoo& other);
 	Zoo(Zoo&& other);
@@ -43,7 +35,6 @@ public:
 	void showAllAnimals()const;
 	void showAllEmployees()const;
 	void feedAllAnimals();
-	// Cage& operator[](int index) { return *cages[index]; }
 	Cage& operator[](int index) { return *cages.at(index); }
 	Address& getAddress(){return address; }
 };

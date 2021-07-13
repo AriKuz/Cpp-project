@@ -21,7 +21,7 @@ void Crocodile::makeSound() const
 
 void Crocodile::eat()
 {
-    cout << "Lion " << name << " is eating meat." << endl;
+    cout << "Crocodile " << name << " is eating meat." << endl;
     this->operator++();
 }
 

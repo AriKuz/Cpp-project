@@ -36,7 +36,10 @@ void Cage::removeAnimal(int sn)
 {
     for (auto it = animals.begin(); it != animals.end(); ++it)
     	if ((*it)->getSerialNumber() == sn)
+        {
             animals.erase(it);
+            return;
+        }
 }
 Cage* Cage::operator+=(const Cage& other)
 {
@@ -48,4 +51,9 @@ Cage* Cage::operator+=(Animal* other)
 {
     addAnimal(other);
     return this;
+}
+void Cage::feedAllAnimalsInCage()
+{
+    for (auto it = animals.begin(); it != animals.end(); ++it)
+        (*it)->eat();
 }
