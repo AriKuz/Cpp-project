@@ -5,7 +5,7 @@
 #include "Employee.h"
 #include "Cage.h"
 #include "Address.h"
-
+#include <string>
 const int LION = 0;
 const int CROCODILE = 1;
 const int BAT= 2;
@@ -15,7 +15,7 @@ const int PARROT = 4;
 class Zoo
 {
 private:
-	char* name;
+	string name;
 	Cage** cages;
 	Employee** employees;
 	Address address;
@@ -26,7 +26,7 @@ private:
 	int maxEmployees;
 public:
 
-	Zoo(const char* name, int numOfCages, Address& add, int maxEmployees);
+	Zoo(const string& name, int numOfCages, Address& add, int maxEmployees);
 	Zoo(Zoo& other);
 	Zoo(Zoo&& other);
 	~Zoo();

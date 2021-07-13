@@ -2,16 +2,17 @@
 #define __PARROT_H
 #include "Bird.h"
 #include "Canfly.h"
-
+#include <string>
 #define PARROT_TYPE 5
 
 class Parrot : public Bird , public Canfly
 {
-public :
-	Parrot(int sn, const char* nme, float h, float w, const char* coth, float sob, int spOf) : Bird(sn, nme, h, w, coth, sob, PARROT_TYPE), Canfly(spOf){}
-	Parrot(const Parrot& other);
+
+public:
+	Parrot(int sn, const string& nme, float h, float w, const string& coth, float sob, int spOf);
+	/*Parrot(const Parrot& other);
 	Parrot(Parrot&& other);
-	~Parrot();
+	~Parrot();*/
     void eat() override;
 	void makeSound() const override ;
 	void fly() const override;

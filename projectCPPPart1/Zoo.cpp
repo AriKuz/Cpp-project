@@ -1,35 +1,32 @@
 #include "Zoo.h"
 
-Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(add)
+Zoo::Zoo(const string& nme, int numOfCages, Address& add, int maximumEmployees) : address(add)
 {
-	name = new char[strlen(nme) + 1];
-	strcpy(name, nme);
+	this->name = nme;
 	maxCagesCount = numOfCages;
-	cages = new Cage*[maxCagesCount];
-	maxEmployees = maximumEmployees;
-	employees = new Employee*[maximumEmployees];
-	employeesCount = 0;
+	this->cages = new Cage*[maxCagesCount];
+	this->maxEmployees = maximumEmployees;
+	this->employees = new Employee*[maximumEmployees];
+	this->employeesCount = 0;
 }
 
 Zoo::Zoo(Zoo& other) : address(other.getAddress())
 {
-	name = new char[strlen(other.name) + 1];
-	name = other.name;
+	this->name = other.name;
 	cages = new Cage*[sizeof(other.cages)];
-	cages = other.cages;
+	this->cages = other.cages;
 	employees = new Employee*[sizeof(other.employees)];
-	employees = other.employees;
-	cagesCount = other.cagesCount;
-	maxCagesCount = other.maxCagesCount;
-	animalsCount = other.animalsCount;
-	employeesCount = other.employeesCount;
-	maxEmployees = other.maxEmployees;
+	this->employees = other.employees;
+	this->cagesCount = other.cagesCount;
+	this->maxCagesCount = other.maxCagesCount;
+	this->animalsCount = other.animalsCount;
+	this->employeesCount = other.employeesCount;
+	this->maxEmployees = other.maxEmployees;
 }
 
 Zoo::Zoo(Zoo&& other) : address(other.address)
 {
 	name = other.name;
-	other.name = nullptr;
 	cages = other.cages;
 	other.cages = nullptr;
 	employees = other.employees;
@@ -45,8 +42,6 @@ Zoo::Zoo(Zoo&& other) : address(other.address)
 
 Zoo::~Zoo()
 {
-	delete[] name;
-	delete[] cages;
 	// delete address;
 	delete[] employees;
 }
