@@ -1,11 +1,5 @@
 #include "Ostrich.h"
 
-
-//TODO: do we need the c'tors?
-Ostrich::Ostrich(const Ostrich &other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type){}
-
-Ostrich::Ostrich(Ostrich &&other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type){} 
-
 void Ostrich::makeSound() const
 {
     cout << "Ostrich " << name << " sticks head in the sand.";

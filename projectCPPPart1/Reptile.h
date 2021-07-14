@@ -6,6 +6,7 @@ class Reptile :public Animal
 {
 private:
 	float temp =0;
+
 public:
 	Reptile(int sn, const string& nme, float h, float w, int type) : Animal(sn, nme, h, w, type) {}
 	void setTemp(float tem) { temp = tem; }

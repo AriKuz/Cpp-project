@@ -63,7 +63,8 @@ public:
     }
     void printList(Node<T>* n)
     {
-        while (n != NULL) {
+        while (n != NULL) 
+        {
             cout << n->data << " ";
             n = n->next;
         }

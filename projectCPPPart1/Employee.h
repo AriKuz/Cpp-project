@@ -16,12 +16,7 @@ private:
 	string role;
 
 public:
-	Employee(int en, string& nme, string& rol) 
-	{
-		this->employeeNumber = en;
-		this->name = nme;
-		this->role = rol;
-	}
+	Employee(int en, string& nme, string& rol) : employeeNumber(en), name(nme), role(rol){}
 
 	friend ostream& operator<< (ostream& o, const Employee& a)
 	{
@@ -29,6 +24,7 @@ public:
 		return o; 
 	}
 	int getEmployeeNumber() { return this->employeeNumber;}
+	
     std::string getEmployeeName() { return this->name;}
     std::string getEmployeeRole() { return this->role;}
 };

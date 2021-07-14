@@ -1,15 +1,15 @@
 #ifndef __CROCODILE_H
 #define __CROCODILE_H
 #include "Reptile.h"
-#include "CanSwin.h"
+#include "CanSwim.h"
 #include <string>
 
 #define CROCODILE_TYPE 2
 
-class Crocodile : public Reptile , public CanSwin
+class Crocodile : public Reptile , public CanSwim
 {
 public:
-	Crocodile(int sn, const string& nme, float h, float w) :Reptile(sn, nme, h, w, CROCODILE_TYPE), CanSwin(20) {}
+	Crocodile(int sn, const string& nme, float h, float w) :Reptile(sn, nme, h, w, CROCODILE_TYPE), CanSwim(20) {}
 	Crocodile(const Crocodile &other);
 	Crocodile(Crocodile&& other);
 	friend ostream& operator<< (ostream& o, const Crocodile& a);

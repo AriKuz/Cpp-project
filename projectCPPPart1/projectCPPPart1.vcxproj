@@ -145,7 +145,7 @@
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Cage.cpp" />
     <ClCompile Include="Canfly.cpp" />
-    <ClCompile Include="CanSwin.cpp" />
+    <ClCompile Include="CanSwim.cpp" />
     <ClCompile Include="Crocodile.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Mammal.cpp" />
@@ -163,7 +163,7 @@
     <ClInclude Include="Bird.h" />
     <ClInclude Include="Cage.h" />
     <ClInclude Include="Canfly.h" />
-    <ClInclude Include="CanSwin.h" />
+    <ClInclude Include="CanSwim.h" />
     <ClInclude Include="Crocodile.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Mammal.h" />

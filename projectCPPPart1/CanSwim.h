@@ -1,12 +1,12 @@
 #ifndef __CANSWIM_H
 #define __CANSWIM_H
-class CanSwin
+class CanSwim
 {
 protected:
 	int speedSwim;
 
-public: // TODO s/swin/swim/
-	CanSwin(int sps)
+public:
+	CanSwim(int sps)
 	{
 		setSpeed(sps);
 	}

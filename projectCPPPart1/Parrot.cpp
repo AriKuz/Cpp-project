@@ -1,6 +1,5 @@
 #include "Parrot.h"
 
-//TODO: do we need the c'tors?
 Parrot::Parrot(int sn, const string& nme, float h, float w, const string& coth, float sob, int spOf) : Bird(sn, nme, h, w, coth, sob, PARROT_TYPE), Canfly(spOf) {}
 
 void Parrot::fly() const

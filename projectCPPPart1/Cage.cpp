@@ -2,7 +2,6 @@
 
 Cage::Cage(int type): cageType(type)
 {
-    this->maxAnimals = 20;
 }
 Cage::Cage(const Cage& other)
 {
@@ -11,7 +10,6 @@ Cage::Cage(const Cage& other)
 }
 Cage::Cage(Cage&& other)
 {
-    //TODO: delete other's vector instead of copying the pointers
     this->cageType = other.cageType;
     this->animals = other.animals;
 }

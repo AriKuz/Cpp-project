@@ -4,7 +4,7 @@
   Bird.cpp
   Cage.cpp
   Canfly.cpp
-  CanSwin.cpp
+  CanSwim.cpp
   Crocodile.cpp
   Employee.cpp
   Mammal.cpp

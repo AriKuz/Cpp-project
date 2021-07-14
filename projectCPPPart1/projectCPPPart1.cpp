@@ -10,7 +10,8 @@
 #include <string>
 using namespace std;
 
-void menu(){
+void menu()
+{
     cout << "\n";
     cout << "Choose action from menu : \n";
     cout << "Choose 1 : to add an animal \n";
@@ -24,7 +25,8 @@ void menu(){
     cout << "Choose 9 : to feed all the animals \n";
     cout << "Choose 0 : to exit \n";
 }
-void addAnimalMenu() {
+void addAnimalMenu()
+{
     cout << "\n";
     cout << "What animal you want to add : \n";
     cout << "Choose 1 : for adding a Lion \n";
@@ -34,7 +36,8 @@ void addAnimalMenu() {
     cout << "Choose 5 : for adding a Bat\n";
     cout << "Choose 0 : for exit \n";
 }
-Lion* getLion() {
+Lion* getLion()
+{
     int sn;
     string name;
     float height;
@@ -50,7 +53,8 @@ Lion* getLion() {
 
     return new Lion(sn, name, height, weight);
 }
-Ostrich* getOstrich(){
+Ostrich* getOstrich()
+{
 
     int sn;
     string name;
@@ -70,7 +74,8 @@ Ostrich* getOstrich(){
     
     return new Ostrich(sn, name, height, weight,color);
 }
-Bat* getBat() {
+Bat* getBat()
+{
 
     int sn;
     string name;
@@ -87,7 +92,8 @@ Bat* getBat() {
     
     return new Bat(sn, name, height, weight);
 }
-Parrot* getParrot() {
+Parrot* getParrot() 
+{
     int sn;
     string name;
     float height;
@@ -112,7 +118,8 @@ Parrot* getParrot() {
     
     return new Parrot(sn, name, height, weight, color,sizeofBeak,speedOfFlight);
 }
-Crocodile* getCroc() {
+Crocodile* getCroc()
+{
     int sn;
     string name;
     float height;
@@ -128,7 +135,8 @@ Crocodile* getCroc() {
     
     return new Crocodile(sn, name, height, weight);
 }
-Employee* getEmployee() {
+Employee* getEmployee()
+{
     int employeNumber;
     string name;
     string role;
@@ -141,7 +149,8 @@ Employee* getEmployee() {
     cout << "adding employee...." << endl;
     return new Employee(employeNumber, name, role);
 }
-void addCageMenu() {
+void addCageMenu()
+{
     
     cout << "choose type of cage that this zoo can add \n";
     cout << "1 for Lion \n";
@@ -249,30 +258,31 @@ int main()
                {
                    cout << "Wrong input \n";
                }
-                switch (cageOption) {
-                case 1:
-                    zoo.addCage(LION);
-                    break;
+                switch (cageOption)
+                {
+                    case 1:
+                        zoo.addCage(LION);
+                        break;
 
-                case 2:
-                    zoo.addCage(CROCODILE);
-                    break;
+                    case 2:
+                        zoo.addCage(CROCODILE);
+                        break;
 
-                case 3:
-                    zoo.addCage(PARROT);
-                    break;
+                    case 3:
+                        zoo.addCage(PARROT);
+                        break;
 
-                case 4:
-                    zoo.addCage(BAT);
-                    break;
+                    case 4:
+                        zoo.addCage(BAT);
+                        break;
 
-                case 5:
-                    zoo.addCage(OSTRICH);
-                    break;
+                    case 5:
+                        zoo.addCage(OSTRICH);
+                        break;
 
-                default:
-                    cout << "Invalid option " << cageOption << ", please try again\n";
-                    break;
+                    default:
+                        cout << "Invalid option " << cageOption << ", please try again\n";
+                        break;
                 }
             } while (cageOption != 0);
 

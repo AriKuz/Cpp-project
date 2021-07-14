@@ -17,7 +17,6 @@ const int PARROT = 4;
 class Zoo
 {
 private:
-	//TODO : add a limit for cages and for employees and for animals vector in Cage.h
 	string name;
 	vector<Cage*> cages;
 	vector<Employee*> employees;

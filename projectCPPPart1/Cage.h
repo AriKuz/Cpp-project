@@ -23,7 +23,6 @@ class Cage
 
 private:
 	vector<Animal*> animals;
-	int maxAnimals;
 	int cageType;
 
 public:
