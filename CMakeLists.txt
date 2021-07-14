@@ -36,4 +36,4 @@ add_executable(projectCPPPart1
         projectCPPPart1/Reptile.cpp
         projectCPPPart1/Reptile.h
         projectCPPPart1/Zoo.cpp
-        projectCPPPart1/Zoo.h)
+        projectCPPPart1/Zoo.h projectCPPPart1/MyTemplate.h)

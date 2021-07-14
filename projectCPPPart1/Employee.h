@@ -29,6 +29,8 @@ public:
 		return o; 
 	}
 	int getEmployeeNumber() { return this->employeeNumber;}
+    std::string getEmployeeName() { return this->name;}
+    std::string getEmployeeRole() { return this->role;}
 };
 
 #endif 

@@ -6,6 +6,7 @@
 #include "Employee.h"
 #include "Cage.h"
 #include "Address.h"
+#include "MyTemplate.h"
 #include <string>
 const int LION = 0;
 const int CROCODILE = 1;
@@ -20,6 +21,7 @@ private:
 	string name;
 	vector<Cage*> cages;
 	vector<Employee*> employees;
+    CustomLinkedList<Employee*> employees2;
 	Address address;
 	static Zoo* theZoo;
 	Zoo(const string& name, Address& add);

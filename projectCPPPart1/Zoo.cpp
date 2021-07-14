@@ -17,7 +17,7 @@ void Zoo::addAnimal(Animal* animal)
 	if (cages.size() == 0)
 	{
 		//added first cage in zoo 
-		cout << "create first cage with type : "<< animal->getType() << endl;
+		cout << "create first cage with type: "<< animal->getType() << endl;
 
 		addCage(animal->getType());
 	}
@@ -31,7 +31,7 @@ void Zoo::addAnimal(Animal* animal)
 				cout << "Animal was added successfully!!" << endl;
 				return;
 			}
-			cout << "Animal was not created. There were too many animals in the cage.";
+			cout << "Animal was not created. There were too many animals in the cage.\n";
 		}
 	}
 	//create cage and added animal to this new cage 
@@ -52,6 +52,7 @@ void Zoo::removeAnimal(int serialNumber)
 void Zoo::addEmployee(Employee* employee)
 {
 	employees.push_back(new Employee(*employee));
+    employees2.add(employee);
 }
 
 void Zoo::removeEmployee(int employeeNumber)
@@ -84,7 +85,7 @@ void Zoo::addCage(int type)
 				cages.push_back(new Cage(type));
 				return;
 			}
-			cout << "Cage was not created. There is a cage with less than 5 animals in with this type.";
+			cout << "Cage was not created. There is a cage with less than 5 animals in with this type.\n";
 			return;
 		}
 	}
@@ -93,7 +94,7 @@ void Zoo::addCage(int type)
 
 void Zoo::showAllAnimals() const 
 {
-	cout << "Animals :\n";
+	cout << "Animals:\n";
 	int counter = 0;
 	for (auto it = cages.begin(); it != cages.end(); ++it, counter++)
 		cout << "Cage number " << counter << ", animals:\n" << **it;
@@ -101,10 +102,14 @@ void Zoo::showAllAnimals() const
 
 void Zoo::showAllEmployees() const 
 {
-	cout << "\nEmployees :\n";
+	cout << "\nEmployees:\n";
 	int counter = 0;
-	for (auto it = employees.begin(); it != employees.end(); ++it, counter++)
-		cout << **it << endl;
+	for (auto it = employees.begin(); it != employees.end(); ++it, counter++){
+        cout << **it << endl;
+        cout << "from linked list: " << employees2.head->data->getEmployeeNumber() <<
+        "\n" << "name: " << employees2.head->data->getEmployeeName() << " role: "
+        << employees2.tail->data->getEmployeeRole();
+	}
 }
 
 void Zoo::feedAllAnimals()
