@@ -23,22 +23,24 @@ private:
 	int maxCagesCount;
 	int animalsCount;
 	int employeesCount;
+	int maxEmployees;
 public:
 
-	Zoo(const char* name, int numOfCages, Address& add);
-	Zoo(const Zoo& other);
+	Zoo(const char* name, int numOfCages, Address& add, int maxEmployees);
+	Zoo(Zoo& other);
 	Zoo(Zoo&& other);
 	~Zoo();
-	void addAnimal(Animal& animal);
+	void addAnimal(Animal* animal);
 	void removeAnimal(int serialNumber);
-	void addEmployee(Employee& employee);
+	void addEmployee(Employee* employee);
 	void removeEmployee(int employeeNumber);
-	void show() const ;
+	void show();
 	void addCage(int type);
 	void showAllAnimals()const;
 	void showAllEmployees()const;
 	void feedAllAnimals();
 	Cage& operator[](int index) { return *cages[index]; }
+	Address& getAddress(){return address; }
 };
 
 #endif 

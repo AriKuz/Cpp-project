@@ -1,13 +1,11 @@
 #include "Crocodile.h"
 
-Crocodile::Crocodile(int sn, const char *nme, float h, float w, int sps, const Crocodile &other) :
-Reptile(sn, nme, h,w), CanSwin(sps) {
+Crocodile::Crocodile(const Crocodile &other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwin(other.speedSwim) {
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
 
 }
-Crocodile::Crocodile(int sn, const char *nme, float h, float w, int sps, Crocodile &&other) :
-Reptile(sn, nme, h, w), CanSwin(sps) {
+Crocodile::Crocodile(Crocodile &&other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwin(other.speedSwim) {
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
     other.name = nullptr;
@@ -31,6 +29,11 @@ const Crocodile& Crocodile::operator++()
 {
     weight = weight + 1;
     return *this;
+}
+
+void Crocodile::swim() const
+{
+    cout << "Crocodile is swimming" << endl;
 }
 
 ostream& operator<<(ostream& o, const Crocodile& a)

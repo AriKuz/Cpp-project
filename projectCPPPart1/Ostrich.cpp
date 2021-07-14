@@ -1,15 +1,17 @@
 #include "Ostrich.h"
 
-Ostrich::Ostrich(int sn, const char *nme, float h, float w, const char *cof, float sob, const Ostrich &other) : Bird(sn, nme, h, w, cof, sob) {
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
+Ostrich::Ostrich(const Ostrich &other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type)
+{
+     this->name = new char[strlen(other.name) + 1];
+     strcpy(this->name, other.name); 
+}
 
-}
-Ostrich::Ostrich(int sn, const char *nme, float h, float w, const char *cof, float sob, Ostrich &&other) : Bird(sn, nme, h, w, cof, sob) {
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
-    other.name = nullptr;
-}
+Ostrich::Ostrich(Ostrich &&other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type)
+{
+     this->name = new char[strlen(other.name) + 1];
+     strcpy(this->name, other.name);
+     other.name = nullptr;
+} 
 
 Ostrich::~Ostrich(){
     delete []name;

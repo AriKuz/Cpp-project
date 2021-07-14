@@ -11,82 +11,82 @@ using namespace std;
 
 void menu(){
     cout << "\n";
-    cout << "choose action from Menu : \n";
-    cout << "choose 1 : for add Animal \n";
-    cout << "choose 2 : for Remove Animal \n";
-    cout << "choose 3 : for add Employee\n";
-    cout << "choose 4 : for Remove Employee \n";
-    cout << "choose 5 : for show all Zoo \n";
-    cout << "choose 6 : for show all Animals \n";
-    cout << "choose 7 : for show all Employees \n";
-    cout << "choose 8 : for feed All Animals \n";
-    cout << "choose 0 : for exit \n";
+    cout << "Choose action from menu : \n";
+    cout << "Choose 1 : to add an animal \n";
+    cout << "Choose 2 : to remove an animal \n";
+    cout << "Choose 3 : to add an Employee\n";
+    cout << "Choose 4 : to remove an employee \n";
+    cout << "Choose 5 : to add a cage \n";
+    cout << "Choose 6 : to show all zoo \n";
+    cout << "Choose 7 : to show all the animals \n";
+    cout << "Choose 8 : to show all the employees \n";
+    cout << "Choose 9 : to feed all the animals \n";
+    cout << "Choose 0 : to exit \n";
 }
 void addAnimalMenu() {
     cout << "\n";
-    cout << "what animal you want to add : \n";
-    cout << "choose 1 : for adding a Lion \n";
-    cout << "choose 2 : for adding a Crocodile \n";
-    cout << "choose 3 : for adding a Parrot\n";
-    cout << "choose 4 : for adding a Ostrich \n";
-    cout << "choose 5 : for adding a Bat\n";
-    cout << "choose 0 : for exit \n";
+    cout << "What animal you want to add : \n";
+    cout << "Choose 1 : for adding a Lion \n";
+    cout << "Choose 2 : for adding a Crocodile \n";
+    cout << "Choose 3 : for adding a Parrot\n";
+    cout << "Choose 4 : for adding a Ostrich \n";
+    cout << "Choose 5 : for adding a Bat\n";
+    cout << "Choose 0 : for exit \n";
 }
-Lion& getLion() {
+Lion* getLion() {
     int sn;
     char name[20];
     float height;
     float weight;
-    cout << "give int serial Number:";
+    cout << "Please specify the serial Number (int):\n";
     cin >> sn;
-    cout << "give name limit of 20 chars:";
+    cout << "Please specify the name (limit of 20 chars):\n";
     cin >> name;
-    cout << "give the height:";
+    cout << "Please specify the height (int):\n";
     cin >> height;
-    cout << "give the weight:";
+    cout << "Please specify the weight (int):\n";
     cin >> weight;
     
-    Lion l(sn, name, height, weight);
-    return l;
+    return new Lion(sn, name, height, weight);
 }
-Ostrich& getOstrich(){
+Ostrich* getOstrich(){
 
     int sn;
     char name[20];
     float height;
     float weight;
     char color[10];
-    cout << "give int serial Number: \n";
+    cout << "Please specify the serial Number (int): \n";
     cin >> sn;
-    cout << "give name limit of 20 chars: \n";
+    cout << "Please specify the name (limit of 20 chars): \n";
     cin >> name;
-    cout << "give the height: \n";
+    cout << "Please specify the height (int): \n";
     cin >> height;
-    cout << "give the weight: \n";
+    cout << "Please specify the weight (int): \n";
     cin >> weight;
-    cout << "give the color of the ostrich: \n";
+    cout << "Please specify the color of the ostrich (char): \n";
     cin >> color;
-    Ostrich o(sn, name, height, weight,color);
-    return o;
+    
+    return new Ostrich(sn, name, height, weight,color);
 }
-Bat& getBat() {
+Bat* getBat() {
 
     int sn;
     char name[20];
     float height;
     float weight;
-    cout << "give int serial Number:";
+    cout << "Please specify the serial Number (int):\n";
     cin >> sn;
-    cout << "give name limit of 20 chars:";
+    cout << "Please specify the name (limit of 20 chars):\n";
     cin >> name;
-    cout << "give the height:";
+    cout << "Please specify the height (int):\n";
     cin >> height;
-    cout << "give the weight:";
+    cout << "Please specify the weight (int):\n";
     cin >> weight;
-    Bat b(sn, name, height, weight);
-    return b;
+    
+    return new Bat(sn, name, height, weight);
 }
-Parrot& getParrot() {
+Parrot* getParrot() {
     int sn;
     char name[20];
     float height;
@@ -94,51 +94,51 @@ Parrot& getParrot() {
     char color[10];
     float sizeofBeak;
     int speedOfFlight;
-    cout << "give int serial Number:";
+    cout << "Please specify the serial Number (int):\n";
     cin >> sn;
-    cout << "give name limit of 20 chars:";
+    cout << "Please specify the name (limit of 20 chars):\n";
     cin >> name;
-    cout << "give the height:";
+    cout << "Please specify the height (int):\n";
     cin >> height;
-    cout << "give the weight:";
+    cout << "Please specify the weight (int):\n";
     cin >> weight;
-    cout << "give the color of the parrot:";
+    cout << "Please specify the color of the parrot (string):\n";
     cin >> color;
-    cout << "give the size  of beak of the parrot:";
+    cout << "Please specify the size  of beak of the parrot (int):\n";
     cin >> sizeofBeak;
-    cout << "give the speed of flight of the parrot:";
+    cout << "Please specify the speed of flight of the parrot (int):\n";
     cin >> speedOfFlight;
-    Parrot p(sn, name, height, weight, color,sizeofBeak,speedOfFlight);
-    return p;
+    
+    return new Parrot(sn, name, height, weight, color,sizeofBeak,speedOfFlight);
 }
-Crocodile& getCroc() {
+Crocodile* getCroc() {
     int sn;
     char name[20];
     float height;
     float weight;
-    cout << "give int serial Number:";
+    cout << "Please specify the serial Number (int):\n";
     cin >> sn;
-    cout << "give name limit of 20 chars:";
+    cout << "Please specify the name (limit of 20 chars):\n";
     cin >> name;
-    cout << "give the height:";
+    cout << "Please specify the height (int):\n";
     cin >> height;
-    cout << "give the weight:";
+    cout << "Please specify the weight (int):\n";
     cin >> weight;
-    Crocodile c(sn, name, height, weight);
-    return c;
+    
+    return new Crocodile(sn, name, height, weight);
 }
-Employee& getEmployee() {
+Employee* getEmployee() {
     int employeNumber;
     char name[20];
     char role[20];
-    cout << "give  employe Number:";
+    cout << "Please specify the employe Number (int):\n";
     cin >> employeNumber;
-    cout << "give name limit of 20 chars:";
+    cout << "Please specify the name (limit of 20 chars):\n";
     cin >> name;
-    cout << "give the role of employee limit of 20 chars::";
+    cout << "Please specify the role of employee (limit of 20 chars):\n";
     cin >> role;
-    Employee e(employeNumber,name,role);
-    return e;
+    cout << "adding employee...." << endl;
+    return new Employee(employeNumber, name, role);
 }
 void addCageMenu() {
     
@@ -149,17 +149,13 @@ void addCageMenu() {
     cout << "4 for Bat \n";
     cout << "5 for Ostrich \n";
     cout << "0 for exit \n";
-    
-   
-
 }
-
 
 int main()
 {
-    Address add("bialik", 8, "ramla");
-    const char* nameOfZoo = "jongel ramla";
-    Zoo zoo(nameOfZoo,6,add);
+    Address add("Bialik", 8, "Ramla");
+    const char* nameOfZoo = "Jungle Ramla";
+    Zoo zoo(nameOfZoo, 6, add, 5);
     int option = 10;
     do {
         
@@ -170,13 +166,13 @@ int main()
         }
         catch (const std::exception& )
         {
-            cout << "wrong input \n";
-           
+            cout << "Wrong input \n";
         }
         switch (option)
         {
         
         case 1:
+            cout << "You chose : add an animal" << endl;
             int animalOption;
             
             do {
@@ -194,7 +190,6 @@ int main()
                 {
                 case 1:
                     zoo.addAnimal(getLion());
-
                     break;
                 case 2:
                     zoo.addAnimal(getCroc());
@@ -208,32 +203,38 @@ int main()
                 case 5:
                     zoo.addAnimal(getBat());
                     break;
+                case 0:
+                    cout << "Exiting animal addition menu" << endl;
+                    break;
                 default:
-                    cout << "no option :" << option;
-
+                    cout << "Invalid option :" << option << ", please try again\n";
                     break;
                 }
 
-            } while (option != 0);
+            } while (animalOption != 0);
             
             break;
         case 2:
+            cout << "You chose : remove an animal" << endl;
             int sn;
-            cout << "give int serial Number of an animal to remove :";
+            cout << "Please specify a serial number of an animal to remove (int):\n";
             cin >> sn;
             zoo.removeAnimal(sn);
             break;
         case 3:
+            cout << "You chose : add an employee" << endl;
             zoo.addEmployee(getEmployee());
             break;
         case 4:
+            cout << "You chose : remove an employee" << endl;
             int em;
-            cout << "give int employe number of an employee to remove :";
+            cout << "Please specify the employe number of the employee which you would like to remove (int):\n";
             cin >> em;
             zoo.removeEmployee(em);
             break;
 
         case 5:
+            cout << "You chose : add a cage" << endl;
             int cageOption ;
 
             do
@@ -245,58 +246,58 @@ int main()
                }
                catch (const std::exception&)
                {
-                   cout << "wrong input \n";
-
+                   cout << "Wrong input \n";
                }
                 switch (cageOption) {
                 case 1:
-                    
                     zoo.addCage(LION);
                     break;
+
                 case 2:
                     zoo.addCage(CROCODILE);
                     break;
+
                 case 3:
                     zoo.addCage(PARROT);
                     break;
+
                 case 4:
                     zoo.addCage(BAT);
                     break;
+
                 case 5:
                     zoo.addCage(OSTRICH);
                     break;
-                default:
-                    cout << "there is no option :" << cageOption;
 
+                default:
+                    cout << "Invalid option " << cageOption << ", please try again\n";
                     break;
                 }
             } while (cageOption != 0);
 
             break;
         case 6:
+            cout << "You chose : show all zoo" << endl;
             zoo.show();
-            cout << "you chose :" << 6;
             break;
         case 7:
+            cout << "You chose : show all the animals" << endl;
             zoo.showAllAnimals();
             break;
         case 8:
+            cout << "You chose : show all the employees" << endl;
             zoo.showAllEmployees();
             break;
         case 9:
+            cout << "You chose : feed all the animals" << endl;
             zoo.feedAllAnimals();
             break;
         default:
-            cout << "no option :" << option;
+            cout << "Invalid option " << option << ", please try again" << endl;
             break;
         }
 
     } while (option != 0);
 
-
     return 0;
-
-
 }
-
-

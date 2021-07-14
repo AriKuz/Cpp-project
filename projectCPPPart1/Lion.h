@@ -5,10 +5,12 @@
 #include "Mammal.h"
 #include <stdio.h>
 
+#define LION_TYPE 3
+
 class Lion :public Mammal
 {
 	public:
-        Lion(int s, const char* name, float h, float w) : Mammal(s, name, h, w, 4){}
+        Lion(int s, const char* name, float h, float w) : Mammal(s, name, h, w, 4, LION_TYPE){}
         Lion(const Lion &other);
         Lion(Lion&& other);
         ~Lion();
