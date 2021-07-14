@@ -2,5 +2,5 @@
 
 Canfly::Canfly(int sof)
 {
-    this->speedOfFlyt = sof;
+    this->speedOfFlight = sof;
 }

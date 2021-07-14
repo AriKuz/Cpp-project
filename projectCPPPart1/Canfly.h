@@ -3,13 +3,12 @@
 class Canfly
 {
 protected:
-	int speedOfFlyt;
+	int speedOfFlight;
 
 public:
 	Canfly(int sof);
 	virtual void fly() const = 0 ;
-	int getSpeed() { return speedOfFlyt; }
-	void setSpeed(int s) { speedOfFlyt = s; }
-	
+	int getSpeed() { return speedOfFlight; }
+	void setSpeed(int s) { speedOfFlight = s; }
 };
 #endif

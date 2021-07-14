@@ -1,21 +1,11 @@
 #include "Ostrich.h"
 
-Ostrich::Ostrich(const Ostrich &other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type)
-{
-     this->name = new char[strlen(other.name) + 1];
-     strcpy(this->name, other.name); 
-}
 
-Ostrich::Ostrich(Ostrich &&other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type)
-{
-     this->name = new char[strlen(other.name) + 1];
-     strcpy(this->name, other.name);
-     other.name = nullptr;
-} 
+//TODO: do we need the c'tors?
+Ostrich::Ostrich(const Ostrich &other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type){}
 
-Ostrich::~Ostrich(){
-    delete []name;
-}
+Ostrich::Ostrich(Ostrich &&other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type){} 
+
 void Ostrich::makeSound() const
 {
     cout << "Ostrich " << name << " sticks head in the sand.";

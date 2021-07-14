@@ -1,121 +1,75 @@
 #include "Zoo.h"
 
-Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(&add)
-{
-	name = new char[strlen(nme) + 1];
-	strcpy(name, nme);
-	this-> maxCagesCount = numOfCages;
-	cages = new Cage*[maxCagesCount];
-	this-> maxEmployees = maximumEmployees;
-	employees = new Employee*[maximumEmployees];
-	employeesCount = 0;
-}
+Zoo::Zoo(const string& nme, Address& add) : address(add) {}
 
 Zoo::Zoo(Zoo& other) : address(other.address)
 {
-	name = strdup(other.name);
-	cages = new Cage*[sizeof(other.cages)];
+	this->name = other.name;
 	cages = other.cages;
-	employees = new Employee * [sizeof(other.employees)];
 	employees = other.employees;
-	cagesCount = other.cagesCount;
-	maxCagesCount = other.maxCagesCount;
-	animalsCount = other.animalsCount;
-	employeesCount = other.employeesCount;
-	maxEmployees = other.maxEmployees;
 }
 
 Zoo::Zoo(Zoo&& other) : address(other.address) 
 {
 	name = other.name;
-	other.name = nullptr;
 	cages = other.cages;
-	other.cages = nullptr;
 	employees = other.employees;
-	other.employees = nullptr;
-	cagesCount = other.cagesCount;
-	maxCagesCount = other.maxCagesCount;
-	animalsCount = other.animalsCount;
-	employeesCount = other.employeesCount;
-	maxEmployees = other.maxEmployees;
 }
 
-Zoo::~Zoo()
-{
-	delete[] name;
-	delete[] cages;
-	delete &address;
-	delete[] employees;
-}
+Zoo::~Zoo() {}
 
 void Zoo::addAnimal(Animal* animal)
 {
-	if (cagesCount == 0)
+	if (cages.size() == 0)
 	{
 		//added first cage in zoo 
 		cout << "create first cage with type : "<< animal->getType() << endl;
 
 		addCage(animal->getType());
 	}
-	bool succes = false;
-	for (int i = 0; i < cagesCount; i++)
+	for (auto it = cages.begin(); it != cages.end(); ++it)
 	{
-		if (cages[i]->getType() == animal->getType() && cages[i]->getAnimalsCount() < 5)
+    	if ((*it)->getType() == animal->getType())
 		{
-			//added animal to exsisted cage
-			cages[i]->addAnimal(animal);
-			cout << "Animal was added successfully!!" << endl;
-			return;
+			if ((*it)->getAnimals().size() < 5)
+			{
+				(*it)->addAnimal(animal);
+				cout << "Animal was added successfully!!" << endl;
+				return;
+			}
+			cout << "Animal was not created. There were too many animals in the cage.";
 		}
 	}
 	//create cage and added animal to this new cage 
 	addCage(animal->getType());
-	cages[cagesCount-1]->addAnimal(animal);
+	cages.at(cages.size() - 1)->addAnimal(animal);
 	cout << "Cage for this animal created and Animal was added successfully!!" << endl;
 }
 
-
-void Zoo::removeAnimal(int serialNumber) {
-	for (int i = 0; i < cagesCount; i++)
-	{
-		for (int j = 0; j < cages[i]->getAnimalsCount(); j++)
-		{
-			if (cages[i]->removeAnimal(serialNumber) == 1) {
-				return;
-			}
-		}
-	}
+void Zoo::removeAnimal(int serialNumber)
+{
+	auto itr_cages = cages.begin();
+	auto itr_end = cages.end();
+	for (; itr_cages != itr_end; ++itr_cages)
+		(*itr_cages)->removeAnimal(serialNumber);
 	cout << "Serial number was not belong to any animal!!!" << endl;
 }
 
 void Zoo::addEmployee(Employee* employee)
 {
-	if (employeesCount < maxEmployees)
-		employees[employeesCount++] = new Employee(*employee);
-	else
-	{
-		cout << "Ohh too much employeess, cant added new one:(" << endl;
-	}
+	employees.push_back(new Employee(*employee));
 }
 
 void Zoo::removeEmployee(int employeeNumber)
 {
-	for (int i = 0; i < employeesCount; i++)
-	{
-		if (employees[i]->getEmployeeNumber() == employeeNumber)
+	for (auto it = employees.begin(); it != employees.end(); ++it)
+		if ((*it)->getEmployeeNumber() == employeeNumber)
 		{
-			Employee** newArray = new Employee * [maxEmployees];
-			std::copy(employees, employees + i, newArray);
-			std::copy(employees + i + 1, employees + employeesCount, newArray + i);
-			delete[] employees;
-			employees = newArray;
-			--employeesCount;
+			employees.erase(it);
 			return;
 		}
-	}
 	cout << "Cant remove employee, didnt find this employee number: " << employeeNumber << endl;
 }
-
 
 void Zoo::show()
 {
@@ -127,37 +81,40 @@ void Zoo::show()
 
 void Zoo::addCage(int type)
 {
-	cout << "Add cage !!! " << endl;
-	if (this->cagesCount > this->maxCagesCount) {
-		cout << "No more available cages sorry :(";
-		return;
-	}
-	for (int i = 0; i < cagesCount; i++) {
-		if (cages[i]->getType() == type) {
-			if (cages[i]->getAnimalsCount() < 5) {
-				cages[cagesCount++] = new Cage(type);
+	for (auto it = cages.begin(); it != cages.end(); ++it)
+	{
+		if ((*it)->getType() == type) 
+		{
+			if ((*it)->getAnimals().size() < 5)
+			{
+				cages.push_back(new Cage(type));
+				return;
 			}
-			cout << "Cage not created. There is a cage with less than 5 animals in with this type.";
+			cout << "Cage was not created. There is a cage with less than 5 animals in with this type.";
 			return;
 		}
 	}
-	cages[cagesCount++] = new Cage(type);
+	cages.push_back(new Cage(type));
 }
 
-void Zoo::showAllAnimals() const {
+void Zoo::showAllAnimals() const 
+{
 	cout << "Animals :\n";
-	for (int i = 0; i < cagesCount; i++)
-		cout << "Cage number " << i << " animals :\n" << *(cages[i]);
+	int counter = 0;
+	for (auto it = cages.begin(); it != cages.end(); ++it, counter++)
+		cout << "Cage number " << counter << ", animals:\n" << **it;
 }
 
-void Zoo::showAllEmployees() const {
+void Zoo::showAllEmployees() const 
+{
 	cout << "\nEmployees :\n";
-	for (int i = 0; i < employeesCount; i++)
-		cout << *employees[i] << endl;
+	int counter = 0;
+	for (auto it = employees.begin(); it != employees.end(); ++it, counter++)
+		cout << **it << endl;
 }
 
-void Zoo::feedAllAnimals() {
-	for (int i = 0; i < cagesCount; i++)
-		for (int j = 0; j < (*this)[i].getAnimalsCount(); j++)
-			cages[i]->getAnimals()[j]->eat();
+void Zoo::feedAllAnimals()
+{
+	for (auto it = cages.begin(); it != cages.end(); ++it)
+		(*it)->feedAllAnimalsInCage();
 }

@@ -3,6 +3,7 @@
 #define __ANIMAL_H
 
 #include <stdio.h>
+#include<string>
 #include <string.h>
 #include <iostream>
 using namespace std;
@@ -13,25 +14,13 @@ class Animal
 protected:
 	int serialNumber;
 	int type; // Bat: 0, Bird: 1, Crocodile : 2, Lion: 3, Ostrich: 4, Parrot: 5.
-	char* name;
+	string name;
 	float height;
 	float weight;
 
-	Animal(int sn,const char* nme,float height1, float weight1, int type)
-	{
-		serialNumber = sn;
-		name = new char[strlen(nme)+1];
-		strcpy(name, nme);
-		height = height1;
-		weight = weight1;
-		this->type = type;
-	}
+	Animal(int sn, const string& nme, float height1, float weight1, int type);
 
-	virtual ~Animal()
-	{
-		cout << "Destructing Animal" << endl;
-		delete []name;
-	}
+	virtual ~Animal();
 	
 public:
 	friend ostream& operator<< (ostream & o, const Animal & a);
@@ -43,7 +32,7 @@ public:
 	float getWeight() const { return weight; }
 	int getSerialNumber() const { return serialNumber; }
 	int getType() const { return type; }
-	char* getName() const { return name; }
+	const string& getName() const { return name; }
 };
 
 #endif 

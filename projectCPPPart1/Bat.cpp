@@ -1,34 +1,21 @@
 #include "Bat.h"
 
-Bat::Bat(const Bat& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, 2, other.type), Canfly(10)
-{
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
-}
-Bat::Bat(Bat&& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, other.numberOfLegs, other.type), Canfly(other.speedOfFlyt)
-{
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
-    other.name = nullptr;
-}
+// TODO: do we need the c'tors?
+Bat::Bat(const Bat& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, 2, other.type), Canfly(10){}
+Bat::Bat(Bat&& other) : Mammal(other.serialNumber, other.name, other.height, other.weight, other.numberOfLegs, other.type), Canfly(other.speedOfFlight){}
 
-Bat::~Bat()
-{
-    cout << "Destructing Bat" << endl;
-    delete []name;
-}
 ostream& operator<< (ostream& o, const Bat& a)
 {
-    cout << "Bat's serial num is #" << a.serialNumber << ", Bat's name is " << a.name << ", Bat's height is " << a.height << ",  Bat's weight is " << a.weight << "Bat's number of legs is " << a.numberOfLegs << ", Bat's speed of flight is " << a.speedOfFlyt << endl;
+    cout << "Bat's serial num is #" << a.serialNumber << ", Bat's name is " << a.name << ", Bat's height is " << a.height << ",  Bat's weight is " << a.weight << "Bat's number of legs is " << a.numberOfLegs << ", Bat's speed of flight is " << a.speedOfFlight << endl;
     return o;
 }
 void Bat::fly() const
 {
-    cout << "Bat is flying with a speed of " << speedOfFlyt << endl;
+    cout << "Bat is flying with a speed of " << speedOfFlight << endl;
 }
 const Bat& Bat::operator++()
 {
-    speedOfFlyt++;
+    speedOfFlight++;
     return *this;
 }
 void Bat::eat()

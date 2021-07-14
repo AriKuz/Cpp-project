@@ -1,20 +1,5 @@
 #include "Crocodile.h"
 
-Crocodile::Crocodile(const Crocodile &other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwin(other.speedSwim) {
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
-
-}
-Crocodile::Crocodile(Crocodile &&other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwin(other.speedSwim) {
-    this->name = new char[strlen(other.name) + 1];
-    strcpy(this->name, other.name);
-    other.name = nullptr;
-}
-
-Crocodile::~Crocodile(){
-    cout << "Destructing Crocodile" << endl;
-    delete []name;
-}
 void Crocodile::makeSound() const
 {
     cout << "Crocodile " << name << " says crack.";
@@ -22,7 +7,7 @@ void Crocodile::makeSound() const
 
 void Crocodile::eat()
 {
-    cout << "Lion " << name << " is eating meat." << endl;
+    cout << "Crocodile " << name << " is eating meat." << endl;
     this->operator++();
 }
 

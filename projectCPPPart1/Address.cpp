@@ -2,32 +2,11 @@
 #include <string.h>
 #include "Address.h"
 
-Address::Address(const char* street, int number, const char* city) : street(nullptr), number(number), city(nullptr)
-{
-    setStreet(street);    
-    setCity(city);    
-}
+Address::Address(const string& street, int number, const string& city){
+    setStreet(street);
+    setCity(city);
+    this->number = number;
 
-Address::Address(Address& otheradress): street(nullptr), city(nullptr)
-{
-    if (this != &otheradress)
-    {
-        setStreet(otheradress.street);
-        setCity(otheradress.city);
-        this->number = otheradress.number;
-    }
-}
-
-Address::Address(Address&& other)
-{
-    std::swap(street, other.street);
-    std::swap(city, other.city);
-}
-
-Address::~Address()
-{
-    delete []street;
-    delete []city;
 }
 
 ostream& operator<<(ostream& os, const Address& add)
@@ -36,23 +15,19 @@ ostream& operator<<(ostream& os, const Address& add)
     return os;
 }
 
-void Address::setStreet(const char* street)
+void Address::setStreet(const string& street)
 {
-    delete[]this->street;
-    this->street = new char[strlen(street)+1];
-    strcpy(this->street, street);
+    this->street = street;
 }
-char* Address::getStreet()
+string& Address::getStreet()
 {
     return street;
 }
-void Address::setCity(const char* city)
+void Address::setCity(const string& city)
 {
-    delete[]this->city;
-    this->city = new char[strlen(city)+1];
-    strcpy(this->city, city);
+    this->city = city;
 }
-char* Address::getCity()
+string& Address::getCity()
 {
     return city;
 }
