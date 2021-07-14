@@ -4,9 +4,9 @@ Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : 
 {
 	name = new char[strlen(nme) + 1];
 	strcpy(name, nme);
-	maxCagesCount = numOfCages;
+	this-> maxCagesCount = numOfCages;
 	cages = new Cage*[maxCagesCount];
-	maxEmployees = maximumEmployees;
+	this-> maxEmployees = maximumEmployees;
 	employees = new Employee*[maximumEmployees];
 	employeesCount = 0;
 }
@@ -53,6 +53,8 @@ void Zoo::addAnimal(Animal* animal)
 	if (cagesCount == 0)
 	{
 		//added first cage in zoo 
+		cout << "create first cage with type : "<< animal->getType() << endl;
+
 		addCage(animal->getType());
 	}
 	bool succes = false;
@@ -78,17 +80,12 @@ void Zoo::removeAnimal(int serialNumber) {
 	{
 		for (int j = 0; j < cages[i]->getAnimalsCount();j++) 
 		{
-			Animal** a = cages[i]->getAnimals();
-			cout << "Animals: " << *a << endl;
-			cout << a[j] << endl;
-			if (cages[i]->getAnimals()[j]->getSerialNumber() == serialNumber) 
-			{
-				cages[i]->removeAnimal(serialNumber);
+			if (cages[i]->removeAnimal(serialNumber) == 1) {
 				return;
 			}
 		}
 	}
-    cout << "Serial number was not belong to any animal!!!" << endl;
+	cout << "Serial number was not belong to any animal!!!" << endl;
 }
 
 void Zoo::addEmployee(Employee* employee) 
@@ -130,13 +127,14 @@ void Zoo::show()
 
 void Zoo::addCage(int type) 
 {
-	if(this->cagesCount < this->maxCagesCount){
+	cout << "Add cage !!! "  << endl;
+	if(this->cagesCount > this->maxCagesCount){
 		cout<<"No more available cages sorry :(";
 		return;
 	}
 	for(int i =0 ; i < cagesCount ; i++){
 		if(cages[i]->getType() == type){
-			if(cages[i]->getAnimalsCount()>5){
+			if(cages[i]->getAnimalsCount() < 5){
 				cages[cagesCount++] = new Cage(type);
 			}
 			cout<< "Cage not created. There is a cage with less than 5 animals in with this type.";
@@ -149,7 +147,10 @@ void Zoo::addCage(int type)
 void Zoo::showAllAnimals() const {
 	cout << "Animals :\n";
 	for (int i = 0; i < cagesCount; i++)
-		cout << *(cages[i])  << endl;
+	{
+		if(cages[i]->getAnimalsCount() > 0)
+		cout << *(cages[i]) << endl;
+	}
 }
 
 void Zoo::showAllEmployees() const {

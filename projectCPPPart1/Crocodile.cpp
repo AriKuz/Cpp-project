@@ -12,6 +12,7 @@ Crocodile::Crocodile(Crocodile &&other) : Reptile(other.serialNumber, other.name
 }
 
 Crocodile::~Crocodile(){
+    cout << "Destructing Crocodile" << endl;
     delete []name;
 }
 void Crocodile::makeSound() const

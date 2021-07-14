@@ -14,7 +14,8 @@ Bat::Bat(Bat&& other) : Mammal(other.serialNumber, other.name, other.height, oth
 
 Bat::~Bat()
 {
-    delete name;
+    cout << "Destructing Bat" << endl;
+    delete []name;
 }
 ostream& operator<< (ostream& o, const Bat& a)
 {
