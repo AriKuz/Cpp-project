@@ -51,7 +51,7 @@ Zoo::~Zoo()
 	delete[] employees;
 }
 
-void Zoo::addAnimal(Animal* animal) 
+void Zoo::addAnimal(Animal* animal)
 {
 	if (cagesCount == 0)
 	{
@@ -69,7 +69,10 @@ void Zoo::addAnimal(Animal* animal)
 			return;
 		}
 	}
-	throw "There is no cage for that type.";
+    //create cage and added animal to this new cage
+    addCage(animal->getType());
+    cages[cagesCount]->addAnimal(animal);
+    cout << "Cage for this animal created and Animal was added successfully!!" << endl;
 }
 
 void Zoo::removeAnimal(int serialNumber) {
@@ -87,13 +90,16 @@ void Zoo::removeAnimal(int serialNumber) {
 			}
 		}
 	}
-    cout << "Serial number was not belong to any animal!!!" << endl;
+    cout << "Serial number does not belong to any animal!!!" << endl;
 }
 
 void Zoo::addEmployee(Employee* employee) 
 {
-	if (employeesCount < maxEmployees)
-		employees[employeesCount++] = new Employee(*employee);
+
+	if (employeesCount < maxEmployees) {
+        employees[employeesCount++] = new Employee(*employee);
+        employees2.add(employee);
+    }
 	else
 	{
 		cout << "employees count is smaller then maxEmployees" << endl;
@@ -128,6 +134,8 @@ void Zoo::show()
 
 void Zoo::addCage(int type) 
 {
+//    cout << "just a fucking test\n";
+//    cout << "cagesCount = " << cagesCount << "max cages count = " <<maxCagesCount << endl;
 	if (cagesCount < maxCagesCount)
 		cages[cagesCount++] = new Cage(type);
 	else
@@ -142,10 +150,14 @@ void Zoo::showAllAnimals() const {
 
 void Zoo::showAllEmployees() const {
 	cout << "\nEmployees :\n";
-	for (int i = 0; i < employeesCount; i++)
-		cout << *employees[i] << endl;
-}
+	for (int i = 0; i < employeesCount; i++){
+        cout << *employees[i] << endl;
+        cout << "from linked list : " << employees2.head->data->getEmployeeNumber() <<
+        "\n" << "name :" << employees2.head->data->getEmployeeName() << " role :" << employees2.tail->data->getEmployeeRole();
+	}
 
+
+}
 void Zoo::feedAllAnimals() {
     for (int i = 0; i < cagesCount; i++) 
 		for (int j = 0;j < (*this)[i].getAnimalsCount();j++) 

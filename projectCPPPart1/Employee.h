@@ -34,6 +34,8 @@ public:
 		return o; 
 	}
 	int getEmployeeNumber() { return this->employeeNumber;}
+    char* getEmployeeName() { return this->name;}
+    char* getEmployeeRole() { return this->role;}
 };
 
 

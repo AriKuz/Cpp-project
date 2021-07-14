@@ -5,8 +5,9 @@
 #include "Employee.h"
 #include "Cage.h"
 #include "Address.h"
+#include "My_Template.h"
 
-const int LION = 0;
+const int LION = 3;
 const int CROCODILE = 1;
 const int BAT= 2;
 const int OSTRICH = 3;
@@ -18,8 +19,9 @@ private:
 	char* name;
 	Cage** cages;
 	Employee** employees;
+	CustomLinkedList<Employee*> employees2;
 	Address address;
-	int cagesCount ;
+	int cagesCount = 0;
 	int maxCagesCount;
 	int animalsCount;
 	int employeesCount;

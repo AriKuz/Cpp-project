@@ -10,7 +10,9 @@
 class Lion :public Mammal
 {
 	public:
-        Lion(int s, const char* name, float h, float w) : Mammal(s, name, h, w, 4, LION_TYPE){}
+        Lion(int s, const char* name, float h, float w) : Mammal(s, name, h, w, 4, LION_TYPE){
+            cout << "in Lion:Lion" << endl;
+        }
         Lion(const Lion &other);
         Lion(Lion&& other);
         ~Lion();

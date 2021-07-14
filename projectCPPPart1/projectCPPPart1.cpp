@@ -6,6 +6,7 @@
 #include "Ostrich.h"
 #include "Crocodile.h"
 #include "Parrot.h"
+#include "My_Template.h"
 #include <string.h>
 using namespace std;
 
@@ -33,7 +34,7 @@ void addAnimalMenu() {
     cout << "Choose 5 : for adding a Bat\n";
     cout << "Choose 0 : for exit \n";
 }
-Lion* getLion() {
+Lion& getLion() {
     int sn;
     char name[20];
     float height;
@@ -46,10 +47,11 @@ Lion* getLion() {
     cin >> height;
     cout << "Please specify the weight (int):\n";
     cin >> weight;
-    
-    return new Lion(sn, name, height, weight);
+
+    Lion *lion = new Lion(sn, name, height, weight);
+    return *lion;
 }
-Ostrich* getOstrich(){
+Ostrich& getOstrich(){
 
     int sn;
     char name[20];
@@ -67,9 +69,10 @@ Ostrich* getOstrich(){
     cout << "Please specify the color of the ostrich (char): \n";
     cin >> color;
     
-    return new Ostrich(sn, name, height, weight,color);
+    Ostrich *ostrich = new Ostrich(sn, name, height, weight,color);
+    return *ostrich;
 }
-Bat* getBat() {
+Bat& getBat() {
 
     int sn;
     char name[20];
@@ -84,9 +87,10 @@ Bat* getBat() {
     cout << "Please specify the weight (int):\n";
     cin >> weight;
     
-    return new Bat(sn, name, height, weight);
+    Bat *bat = new Bat(sn, name, height, weight);
+    return *bat;
 }
-Parrot* getParrot() {
+Parrot& getParrot() {
     int sn;
     char name[20];
     float height;
@@ -109,9 +113,10 @@ Parrot* getParrot() {
     cout << "Please specify the speed of flight of the parrot (int):\n";
     cin >> speedOfFlight;
     
-    return new Parrot(sn, name, height, weight, color,sizeofBeak,speedOfFlight);
+    Parrot *parrot =  new Parrot(sn, name, height, weight, color,sizeofBeak,speedOfFlight);
+    return *parrot;
 }
-Crocodile* getCroc() {
+Crocodile& getCroc() {
     int sn;
     char name[20];
     float height;
@@ -124,10 +129,11 @@ Crocodile* getCroc() {
     cin >> height;
     cout << "Please specify the weight (int):\n";
     cin >> weight;
-    
-    return new Crocodile(sn, name, height, weight);
+
+    Crocodile *crocodile = new Crocodile(sn, name, height, weight);
+    return *crocodile;
 }
-Employee* getEmployee() {
+Employee& getEmployee() {
     int employeNumber;
     char name[20];
     char role[20];
@@ -138,7 +144,8 @@ Employee* getEmployee() {
     cout << "Please specify the role of employee (limit of 20 chars):\n";
     cin >> role;
     cout << "adding employee...." << endl;
-    return new Employee(employeNumber, name, role);
+    Employee *employee = new Employee(employeNumber, name, role);
+    return *employee;
 }
 void addCageMenu() {
     
@@ -153,12 +160,19 @@ void addCageMenu() {
 
 int main()
 {
-    Address add("Bialik", 8, "Ramla");
+    CustomLinkedList<int> firstList;
+
+    firstList.add(1);
+    firstList.add(2);
+    firstList.add(3);
+    firstList.printList(firstList.head);
+    
+    Address add("Bialik", 8, " Ramla");
     const char* nameOfZoo = "Jungle Ramla";
     Zoo zoo(nameOfZoo, 6, add, 5);
     int option = 10;
     do {
-        
+
         menu();
         try
         {
@@ -189,19 +203,19 @@ int main()
                 switch (animalOption) 
                 {
                 case 1:
-                    zoo.addAnimal(getLion());
+                    zoo.addAnimal(&getLion());
                     break;
                 case 2:
-                    zoo.addAnimal(getCroc());
+                    zoo.addAnimal(&getCroc());
                     break;
                 case 3:
-                    zoo.addAnimal(getParrot());
+                    zoo.addAnimal(&getParrot());
                     break;
                 case 4:
-                    zoo.addAnimal(getOstrich());
+                    zoo.addAnimal(&getOstrich());
                     break;
                 case 5:
-                    zoo.addAnimal(getBat());
+                    zoo.addAnimal(&getBat());
                     break;
                 case 0:
                     cout << "Exiting animal addition menu" << endl;
@@ -223,7 +237,7 @@ int main()
             break;
         case 3:
             cout << "You chose : add an employee" << endl;
-            zoo.addEmployee(getEmployee());
+            zoo.addEmployee(&getEmployee());
             break;
         case 4:
             cout << "You chose : remove an employee" << endl;
