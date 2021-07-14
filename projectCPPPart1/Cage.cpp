@@ -38,15 +38,18 @@ void Cage::addAnimal(Animal* animal)
 {
     animals[animalsCount++] = animal;
 }
-void Cage::removeAnimal(int sn)
+int Cage::removeAnimal(int sn)
 {
     for (int i = 0; i < animalsCount; i++) {
         if (animals[i]->getSerialNumber() == sn)
         {
-            delete &animals[i];
+            cout << "animal: " << animals[i]->getSerialNumber() << endl;
+            delete& animals[i];
             animalsCount--;
+            return 1;
         }
     }
+    return 0;
 }
 Cage* Cage::operator+=(const Cage& other)
 {

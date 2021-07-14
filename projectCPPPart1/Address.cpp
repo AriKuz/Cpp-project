@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <string.h>
 #include "Address.h"
 
@@ -25,13 +26,13 @@ Address::Address(Address&& other)
 
 Address::~Address()
 {
-    delete[]this->street;
-    delete[]this->city;
+    delete []street;
+    delete []city;
 }
 
 ostream& operator<<(ostream& os, const Address& add)
 {
-    cout << "Street: " << add.street << " Number: " << add.number<< "City: " << add.city << endl;
+    cout << "Street: " << add.street << " Number: " << add.number<< " City: " << add.city << endl;
     return os;
 }
 

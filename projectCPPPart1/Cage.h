@@ -17,7 +17,7 @@ public:
 	~Cage();
 	friend ostream& operator<< (ostream& o, const Cage& a);
 	void addAnimal(Animal* animal);
-	void removeAnimal(int sn);
+	int removeAnimal(int sn);
 	Cage* operator+=(const Cage& other);
 	Cage* operator+=(Animal* other);
 	int getType() const { return cageType;};

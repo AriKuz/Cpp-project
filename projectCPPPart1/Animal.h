@@ -24,7 +24,7 @@ protected:
 		strcpy(name, nme);
 		height = height1;
 		weight = weight1;
-		type = type;
+		this->type = type;
 	}
 
 	virtual ~Animal()
