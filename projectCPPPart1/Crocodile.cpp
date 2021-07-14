@@ -1,11 +1,11 @@
 #include "Crocodile.h"
 
-Crocodile::Crocodile(const Crocodile &other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwin(other.speedSwim) {
+Crocodile::Crocodile(const Crocodile &other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwim(other.speedSwim) {
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
 
 }
-Crocodile::Crocodile(Crocodile &&other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwin(other.speedSwim) {
+Crocodile::Crocodile(Crocodile &&other) : Reptile(other.serialNumber, other.name, other.height,other.weight, other.getType()), CanSwim(other.speedSwim) {
     this->name = new char[strlen(other.name) + 1];
     strcpy(this->name, other.name);
     other.name = nullptr;
