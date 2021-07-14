@@ -18,7 +18,7 @@ private:
 	char* name;
 	Cage** cages;
 	Employee** employees;
-	Address address;
+	Address* address;
 	int cagesCount ;
 	int maxCagesCount;
 	int animalsCount;
@@ -40,7 +40,7 @@ public:
 	void showAllEmployees()const;
 	void feedAllAnimals();
 	Cage& operator[](int index) { return *cages[index]; }
-	Address& getAddress(){return address; }
+	Address& getAddress(){return *address; }
 };
 
 #endif 

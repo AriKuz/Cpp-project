@@ -1,6 +1,7 @@
 #include "Bird.h"
 
 Bird::~Bird(){
+    cout << "Destructing Bird" << endl;
     delete []name;
 }
 Bird::Bird(const Bird &other) : Animal(other.serialNumber, other.name, other.height, other.weight, other.type) {

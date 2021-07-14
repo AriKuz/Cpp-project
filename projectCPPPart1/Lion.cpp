@@ -14,7 +14,9 @@ Lion::Lion(Lion&& other) : Mammal(other.serialNumber, other.name, other.height, 
 }
 
 Lion::~Lion(){
-    delete []name;
+     cout << "Destructing Lion" << endl;
+    delete []name;   
+
 }
 void Lion::makeSound() const
 {

@@ -27,7 +27,7 @@ Cage::~Cage()
 }
 ostream& operator<< (ostream& o, const Cage& cage)
 {
-    //TODO change the type to ENUM
+
     cout << "The cage type is " << cage.cageType << " and the number of animals is " <<  cage.animalsCount << endl;
     for (int i = 0; i < cage.animalsCount; i++)
         cout << "\nAnimal number #" << i << ":\n" << *(cage.animals[i]) << endl;
@@ -38,23 +38,31 @@ void Cage::addAnimal(Animal* animal)
 {
     animals[animalsCount++] = animal;
 }
-void Cage::removeAnimal(int sn)
+int Cage::removeAnimal(int sn)
 {
     for (int i = 0; i < animalsCount; i++) {
         if (animals[i]->getSerialNumber() == sn)
         {
+           cout << "animal: " << animals[i]->getSerialNumber() << endl;
             delete &animals[i];
             animalsCount--;
+            return 1;
         }
     }
+    return 0;
 }
 Cage* Cage::operator+=(const Cage& other)
 {
-    for (int i = 0; i < other.animalsCount; i++)
-        addAnimal(other.animals[i]);
-
-    return this;
+    if(other.getType() == this->getType())
+    {
+        for (int i = 0; i < other.animalsCount; i++)
+            addAnimal(other.animals[i]);
+        return this;
+    }
+    cout<< " Cage type dont match, Its danguras to mixed them !!!!";
+    return NULL;
 }
+
 Cage* Cage::operator+=(Animal* other)
 {
     // TODO check if correct

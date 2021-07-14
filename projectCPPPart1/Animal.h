@@ -29,6 +29,7 @@ protected:
 
 	virtual ~Animal()
 	{
+		cout << "Destructing Animal" << endl;
 		delete []name;
 	}
 	
