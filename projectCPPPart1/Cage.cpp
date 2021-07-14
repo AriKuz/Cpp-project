@@ -20,7 +20,6 @@ Cage::~Cage()
 }
 ostream& operator<< (ostream& o, const Cage& cage)
 {
-    //TODO change the type to ENUM
     cout << "The cage type is " << cage.cageType << " and the number of animals is " <<  cage.animals.size() << endl;
     int counter = 1;
     for (auto it = cage.animals.begin(); it != cage.animals.end(); ++it, counter++)
