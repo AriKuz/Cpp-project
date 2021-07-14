@@ -1,5 +1,6 @@
 #include "Animal.h"
 
+
 void Animal::setHeight(float h){
     this->height = h;
 }

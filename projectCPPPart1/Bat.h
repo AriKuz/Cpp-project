@@ -3,7 +3,7 @@
 #include "Mammal.h"
 #include "Canfly.h"
 
-#define BAT_TYPE 0
+#define BAT_TYPE 1
 
 class Bat : public Mammal , public Canfly
 {

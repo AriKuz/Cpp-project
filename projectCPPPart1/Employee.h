@@ -15,24 +15,10 @@ private:
 	char* role;
 
 public:
-	Employee(int en, char* nme, char* rol) {
-		employeeNumber = en;
-		name = new char[strlen(nme) + 1];
-		strcpy(name, nme);
-		role = new char[strlen(rol) + 1];
-		strcpy(role, rol);
-	}
-
+	Employee(int en, char* nme, char* rol);
 	~Employee();
-
-	friend ostream& operator<< (ostream& o, const Employee& a)
-	{
-		cout << "Employee num# " << a.employeeNumber << ", name: " << a.name << ", role:" << a.role << endl;
-		return o; 
-	}
+	friend ostream& operator<< (ostream& o, const Employee& a);
 	int getEmployeeNumber() { return this->employeeNumber;}
 };
-
-
 
 #endif 

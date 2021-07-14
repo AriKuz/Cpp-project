@@ -1,20 +1,20 @@
 #include "Zoo.h"
 
-Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(add)
+Zoo::Zoo(const char* nme, int numOfCages, Address& add, int maximumEmployees) : address(&add)
 {
 	name = new char[strlen(nme) + 1];
 	strcpy(name, nme);
-	this->maxCagesCount = numOfCages;
-	cages = new Cage * [maxCagesCount];
-	this->maxEmployees = maximumEmployees;
-	employees = new Employee * [maximumEmployees];
+	this-> maxCagesCount = numOfCages;
+	cages = new Cage*[maxCagesCount];
+	this-> maxEmployees = maximumEmployees;
+	employees = new Employee*[maximumEmployees];
 	employeesCount = 0;
 }
 
 Zoo::Zoo(Zoo& other) : address(other.address)
 {
 	name = strdup(other.name);
-	cages = new Cage * [sizeof(other.cages)];
+	cages = new Cage*[sizeof(other.cages)];
 	cages = other.cages;
 	employees = new Employee * [sizeof(other.employees)];
 	employees = other.employees;
@@ -25,7 +25,7 @@ Zoo::Zoo(Zoo& other) : address(other.address)
 	maxEmployees = other.maxEmployees;
 }
 
-Zoo::Zoo(Zoo&& other) : address(other.address)
+Zoo::Zoo(Zoo&& other) : address(other.address) 
 {
 	name = other.name;
 	other.name = nullptr;
@@ -53,7 +53,8 @@ void Zoo::addAnimal(Animal* animal)
 	if (cagesCount == 0)
 	{
 		//added first cage in zoo 
-		cout << "create first cage with type : " << animal->getType() << endl;
+		cout << "create first cage with type : "<< animal->getType() << endl;
+
 		addCage(animal->getType());
 	}
 	bool succes = false;
@@ -146,10 +147,7 @@ void Zoo::addCage(int type)
 void Zoo::showAllAnimals() const {
 	cout << "Animals :\n";
 	for (int i = 0; i < cagesCount; i++)
-	{
-		if (cages[i]->getAnimalsCount() > 0)
-			cout << *(cages[i]) << endl;
-	}
+		cout << "Cage number " << i << " animals :\n" << *(cages[i]);
 }
 
 void Zoo::showAllEmployees() const {

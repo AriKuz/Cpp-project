@@ -14,8 +14,10 @@ Parrot::Parrot(Parrot&& other) : Bird(other.serialNumber, other.name, other.heig
 
 Parrot::~Parrot()
 {
-    delete name;
-    delete colorOfFeathers;
+    cout << "Destructing Parrot" << endl;
+
+    delete []name;
+    delete []colorOfFeathers;
 }
 
 void Parrot::fly() const
