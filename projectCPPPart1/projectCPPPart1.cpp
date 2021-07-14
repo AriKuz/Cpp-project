@@ -156,7 +156,7 @@ int main()
 {
     Address add("Bialik", 8, "Ramla");
     const string nameOfZoo = "Jungle Ramla";
-    Zoo zoo(nameOfZoo, add);
+    Zoo zoo = *(Zoo::getInstance(nameOfZoo, add));
     int option = 10;
     do {
         

@@ -1,22 +1,16 @@
 #include "Zoo.h"
 
+Zoo* Zoo::theZoo = 0;
+
 Zoo::Zoo(const string& nme, Address& add) : address(add) {}
 
-Zoo::Zoo(Zoo& other) : address(other.address)
+Zoo* Zoo::getInstance(const string& name, Address& add)
 {
-	this->name = other.name;
-	cages = other.cages;
-	employees = other.employees;
-}
+    if (theZoo == 0)
+        theZoo = new Zoo(name, add);
 
-Zoo::Zoo(Zoo&& other) : address(other.address) 
-{
-	name = other.name;
-	cages = other.cages;
-	employees = other.employees;
+    return theZoo;
 }
-
-Zoo::~Zoo() {}
 
 void Zoo::addAnimal(Animal* animal)
 {

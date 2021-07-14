@@ -21,12 +21,12 @@ private:
 	vector<Cage*> cages;
 	vector<Employee*> employees;
 	Address address;
-public:
-
+	static Zoo* theZoo;
 	Zoo(const string& name, Address& add);
-	Zoo(Zoo& other);
-	Zoo(Zoo&& other);
-	~Zoo();
+	
+public:
+	static Zoo* getInstance(const string& name, Address& add); 
+	Zoo(Zoo& other): address(other.address) {};
 	void addAnimal(Animal* animal);
 	void removeAnimal(int serialNumber);
 	void addEmployee(Employee* employee);
