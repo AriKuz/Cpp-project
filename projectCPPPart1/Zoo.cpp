@@ -1,15 +1,10 @@
 #include "Zoo.h"
 
-Zoo::Zoo(const char* nme, Address& add) : address(add)
-{
-	name = new char[strlen(nme) + 1];
-	strcpy(name, nme);
-}
+Zoo::Zoo(const string& nme, Address& add) : address(add) {}
 
 Zoo::Zoo(Zoo& other) : address(other.getAddress())
 {
-	name = new char[strlen(other.name) + 1];
-	name = other.name;
+	this->name = other.name;
 	cages = other.cages;
 	employees = other.employees;
 }
@@ -17,17 +12,13 @@ Zoo::Zoo(Zoo& other) : address(other.getAddress())
 Zoo::Zoo(Zoo&& other) : address(other.address)
 {
 	name = other.name;
-	other.name = nullptr;
 	cages = other.cages;
 	delete &other.cages;
 	employees = other.employees;
 	delete &other.employees;
 }
 
-Zoo::~Zoo()
-{
-	delete[] name;
-}
+Zoo::~Zoo() {}
 
 void Zoo::addAnimal(Animal* animal) 
 {
@@ -80,10 +71,6 @@ void Zoo::show()
 void Zoo::addCage(int type) 
 {
 	cages.push_back(new Cage(type));
-	// if (cagesCount < maxCagesCount)
-	// 	cages[cagesCount++] = new Cage(type);
-	// else
-	// 	throw "There is maximum cages in the zoo.";
 }
 
 void Zoo::showAllAnimals() const 

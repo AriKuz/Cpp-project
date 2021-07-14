@@ -1,21 +1,9 @@
 #include "Ostrich.h"
 
-Ostrich::Ostrich(const Ostrich &other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type)
-{
-     this->name = new char[strlen(other.name) + 1];
-     strcpy(this->name, other.name); 
-}
+Ostrich::Ostrich(const Ostrich &other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type){}
 
-Ostrich::Ostrich(Ostrich &&other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type)
-{
-     this->name = new char[strlen(other.name) + 1];
-     strcpy(this->name, other.name);
-     other.name = nullptr;
-} 
+Ostrich::Ostrich(Ostrich &&other) : Bird(other.serialNumber, other.name, other.height, other.weight, other.colorOfFeathers, other.sizeOfBeak, other.type){} 
 
-Ostrich::~Ostrich(){
-    delete []name;
-}
 void Ostrich::makeSound() const
 {
     cout << "Ostrich " << name << " sticks head in the sand.";

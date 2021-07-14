@@ -4,24 +4,23 @@
 #include "Animal.h"
 #include <stdio.h>
 #include <string.h>
+#include <string>
 class Bird : public Animal
 {
 protected:
-	char* colorOfFeathers;
+	string colorOfFeathers;
 	float sizeOfBeak;
 
 public:
-	Bird(int sn, const char* nme, float h, float w,const char* cof, float sob, int type) : Animal(sn, nme, h, w, type)
+	Bird(int sn, const string& nme, float h, float w,const string& cof, float sob, int type) : Animal(sn, nme, h, w, type)
 	{
-        sizeOfBeak = sob;
-		colorOfFeathers = new char[strlen(cof) + 1];
-		strcpy(colorOfFeathers, cof);
+		this->colorOfFeathers = cof;
+        this->sizeOfBeak = sob;
 	}
-    Bird(const Bird &other);
-    Bird(Bird &&other);
-	~Bird();
-    friend ostream& operator<< (ostream& o, const Bird& a);
-	char* getColorOfFeathers() const { return colorOfFeathers; }
+	Bird(const Bird& other) : Animal(other.serialNumber, other.name, other.height, other.weight, other.type) {}
+	Bird(Bird&& other) : Animal(other.serialNumber, other.name, other.height, other.weight, other.type) {}
+	friend ostream& operator<< (ostream& o, const Bird& a);
+	const string& getColorOfFeathers() const { return colorOfFeathers; }
 	float getSizeOfBeak() const { return sizeOfBeak; }
 
 

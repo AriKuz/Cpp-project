@@ -3,6 +3,7 @@
 #define __EMPLOYEE_H
 #include <stdio.h>
 #include <string.h>
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -11,19 +12,16 @@ class Employee
 {
 private:
 	int employeeNumber;
-	char* name;
-	char* role;
+	string name;
+	string role;
 
 public:
-	Employee(int en, char* nme, char* rol) {
-		employeeNumber = en;
-		name = new char[strlen(nme) + 1];
-		strcpy(name, nme);
-		role = new char[strlen(rol) + 1];
-		strcpy(role, rol);
+	Employee(int en, string& nme, string& rol) 
+	{
+		this->employeeNumber = en;
+		this->name = nme;
+		this->role = rol;
 	}
-
-	~Employee();
 
 	friend ostream& operator<< (ostream& o, const Employee& a)
 	{

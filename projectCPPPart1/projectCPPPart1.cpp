@@ -7,6 +7,7 @@
 #include "Crocodile.h"
 #include "Parrot.h"
 #include <string.h>
+#include <string>
 using namespace std;
 
 void menu(){
@@ -35,7 +36,7 @@ void addAnimalMenu() {
 }
 Lion* getLion() {
     int sn;
-    char name[20];
+    string name;
     float height;
     float weight;
     cout << "Please specify the serial Number (int):\n";
@@ -52,10 +53,10 @@ Lion* getLion() {
 Ostrich* getOstrich(){
 
     int sn;
-    char name[20];
+    string name;
     float height;
     float weight;
-    char color[10];
+    string color;
     cout << "Please specify the serial Number (int): \n";
     cin >> sn;
     cout << "Please specify the name (limit of 20 chars): \n";
@@ -72,7 +73,7 @@ Ostrich* getOstrich(){
 Bat* getBat() {
 
     int sn;
-    char name[20];
+    string name;
     float height;
     float weight;
     cout << "Please specify the serial Number (int):\n";
@@ -88,10 +89,10 @@ Bat* getBat() {
 }
 Parrot* getParrot() {
     int sn;
-    char name[20];
+    string name;
     float height;
     float weight;
-    char color[10];
+    string color;
     float sizeofBeak;
     int speedOfFlight;
     cout << "Please specify the serial Number (int):\n";
@@ -113,7 +114,7 @@ Parrot* getParrot() {
 }
 Crocodile* getCroc() {
     int sn;
-    char name[20];
+    string name;
     float height;
     float weight;
     cout << "Please specify the serial Number (int):\n";
@@ -129,8 +130,8 @@ Crocodile* getCroc() {
 }
 Employee* getEmployee() {
     int employeNumber;
-    char name[20];
-    char role[20];
+    string name;
+    string role;
     cout << "Please specify the employe Number (int):\n";
     cin >> employeNumber;
     cout << "Please specify the name (limit of 20 chars):\n";
@@ -154,8 +155,7 @@ void addCageMenu() {
 int main()
 {
     Address add("Bialik", 8, "Ramla");
-    const char* nameOfZoo = "Jungle Ramla";
-    // Zoo zoo(nameOfZoo, 6, add, 5);
+    const string nameOfZoo = "Jungle Ramla";
     Zoo zoo(nameOfZoo, add);
     int option = 10;
     do {
